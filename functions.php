@@ -10,13 +10,13 @@ define(__NAMESPACE__ .'\THEME_PATH', str_replace('\\', '/', __DIR__));
 $activePlugins	= get_option( 'active_plugins' );
 
 // We cannot use the sim theme
-if(!in_array('sim-plugin/sim-plugin.php', $activePlugins)){
+if(!in_array('sim-base/sim-base.php', $activePlugins) && !in_array('sim-plugin/sim-plugin.php', $activePlugins)){
     $themes = wp_get_themes();
     unset($themes['SIM theme']);
 
     switch_theme(array_values($themes)[0]['theme_root']);
-    error_log("To use the sim-theme you need to install the sim-plugin");
-    //throw new Exception("To use the sim-theme you need to install the sim-plugin");
+    error_log("To use the sim-theme you need to install the sim-base");
+    //throw new Exception("To use the sim-theme you need to install the sim-base");
 }
 
 // composer
