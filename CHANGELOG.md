@@ -5,6 +5,7 @@
 ### Added
 
 ### Changed
+- support for sim-base theme
 
 ### Fixed
 
