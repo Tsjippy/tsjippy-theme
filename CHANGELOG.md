@@ -5,6 +5,15 @@
 ### Added
 
 ### Changed
+
+### Fixed
+
+## [2.1.8] - 2025-12-01
+
+
+### Added
+
+### Changed
 - support for sim-base theme
 
 ### Fixed
