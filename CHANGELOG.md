@@ -52,7 +52,7 @@
 
 
 ### Added
-- 'sim-theme-archive-page-title' filter
+- 'tsjippy-theme-archive-page-title' filter
 
 ### Changed
 

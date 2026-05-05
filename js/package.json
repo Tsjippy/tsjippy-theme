@@ -4,11 +4,14 @@
   "description": "Home",
   "main": "./home.js",
   "scripts": {
-    "home": "webpack --watch --entry ./home.js --output-path . --output-filename home.min.js --progress --mode=production --devtool source-map"
+    "home": "webpack --watch --entry ./home.js --output-path . --output-filename home.min.js --progress --mode=production --devtool source-map",
+    "customizer": "webpack --watch --entry ./customizer.js --output-path . --output-filename customizer.min.js --progress --mode=production --devtool source-map",
+    "all": "run-p home customizer"
   },
   "author": "Ewald Harmsen",
   "license": "ISC",
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2"
   }

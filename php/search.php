@@ -1,5 +1,5 @@
 <?php
-namespace SIMTHEME;
+namespace TSJIPPYTHEME;
 
 add_action('init', function(){
     // replace the searchform with the ajax search lite

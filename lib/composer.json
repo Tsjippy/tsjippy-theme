@@ -1,5 +1,5 @@
 {
-    "name": "tsjippy/sim-theme",
+    "name": "tsjippy/tsjippy-theme",
     "description": "A child theme for generate press including all SIM layouts",
     "type": "project",
     "require": {
@@ -7,7 +7,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Tsjippy\\SimTheme\\": "src/"
+            "Tsjippy\\TSJIPPYTHEME\\": "src/"
         }
     },
     "authors": [

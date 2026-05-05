@@ -1,5 +1,5 @@
 <?php
-namespace SIMTHEME;
+namespace TSJIPPYTHEME;
 
 //Add a shortcode for the displayname
 add_shortcode( 'displayname', __NAMESPACE__.'\displayName');
@@ -15,11 +15,11 @@ function displayName() {
 //Shortcode to return the amount of loggins in words
 add_shortcode("login_count", __NAMESPACE__.'\loginCount');
 function loginCount(){
-	$userId			= get_current_user_id();
+	$userId				= get_current_user_id();
 	$currentLogginCount = get_user_meta( $userId, 'login_count', true );
 	//Get the word from the array
 	if (is_numeric($currentLogginCount)){
-		return \SIM\numberToWords($currentLogginCount);
+		return \TSJIPPY\numberToWords($currentLogginCount);
 	//key not set, assume its the first time
 	}else{
 		return "your first";

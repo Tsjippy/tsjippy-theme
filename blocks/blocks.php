@@ -1,6 +1,6 @@
 <?php
-namespace SIM\FRONTPAGE;
-use SIM;
+namespace TSJIPPY\FRONTPAGE;
+use TSJIPPY;
 
 add_action('init', function () {
 	global $post;

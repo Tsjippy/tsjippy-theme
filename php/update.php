@@ -1,6 +1,6 @@
 <?php
-namespace SIMTHEME;
-use SIM;
+namespace TSJIPPYTHEME;
+use TSJIPPY;
 
 use Github\Exception\ApiLimitExceedException;
 
@@ -13,7 +13,7 @@ use Github\Exception\ApiLimitExceedException;
  */
 add_filter( 'themes_api', function ( $res, $action, $args ) {
 	// do nothing if you're not getting plugin information or this is not our plugin
-	if( 'plugin_information' !== $action || 'sim-theme' !== $args->slug) {
+	if( 'plugin_information' !== $action || 'tsjippy-theme' !== $args->slug) {
 		return $res;
 	}
 
@@ -54,7 +54,7 @@ add_action('admin_menu', function(){
 	add_submenu_page('themes.php', 'Update', 'Update', 'edit_theme_options', 'update', function($test){
 		$github		= new TSJIPPY\GITHUB\Github();
 		$release	= $github->getLatestRelease('tsjippy', 'tsjippy-theme', true);
-		$theme		= wp_get_theme('sim-theme');
+		$theme		= wp_get_theme('tsjippy-theme');
 
 		if(version_compare($release['tag_name'], $theme->version)){
 			$url  		= wp_nonce_url( admin_url( 'update.php?action=upgrade-theme&amp;theme=' . urlencode( 'tsjippy-theme' ) ), 'upgrade-theme_tsjippy-theme' );

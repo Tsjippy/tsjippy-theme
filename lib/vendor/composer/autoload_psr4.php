@@ -6,6 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Tsjippy\\SimTheme\\' => array($baseDir . '/src'),
+    'Tsjippy\\TSJIPPYTHEME\\' => array($baseDir . '/src'),
     'Michelf\\' => array($vendorDir . '/michelf/php-markdown/Michelf'),
 );

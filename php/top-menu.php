@@ -1,6 +1,6 @@
 <?php
-namespace SIMTHEME;
-use SIM;
+namespace TSJIPPYTHEME;
+use TSJIPPY;
 
 // add top menu
 add_action( 'init', function() {
@@ -104,7 +104,7 @@ function addDarkThemeLogo($html, $logoUrl, $htmlAttr){
     $ext            = pathinfo($logoUrl, PATHINFO_EXTENSION);
     $darkModeUrl    = str_replace(".$ext", "_DM.$ext", $logoUrl);
 
-    if(!file_exists(SIM\urlToPath($darkModeUrl))){
+    if(!file_exists(TSJIPPY\urlToPath($darkModeUrl))){
         return $html;
     }
 

@@ -1,8 +1,8 @@
 <?php
-namespace SIMTHEME;
-use SIM;
+namespace TSJIPPYTHEME;
+use TSJIPPY;
 
-// depends on the SIM plugin
+// depends on the tsjippy-shared-functionality plugin
 
 function showGalleries(){
     // check the order of the page and news gallery
@@ -33,7 +33,8 @@ function showGalleries(){
             showNewsGallery();
         }
 
-        if($what == 'page' && function_exists('SIM\getModuleOption') && SIM\getModuleOption('pagegallery', 'enable')){
+        // TO DO  use filter
+        if($what == 'page' && is_plugin_active('tsjippy-page-gallery\tsjippy-page-gallery.php')){
             // Do not show if we should hide it
             if(
                 get_theme_mod('hide_page_gallery', false)	||
@@ -90,8 +91,8 @@ function showGalleries(){
             $speed		= get_theme_mod('speed', 60);
             $showIfEmpty= get_theme_mod('hide_page_gallery_if_empty', false);
 
-            if(function_exists('SIM\PAGEGALLERY\pageGallery')){
-                echo SIM\PAGEGALLERY\pageGallery($title, $postTypes, $amount, $includedCategories, $speed, $showIfEmpty);
+            if(function_exists('TSJIPPY\PAGEGALLERY\pageGallery')){
+                echo TSJIPPY\PAGEGALLERY\pageGallery($title, $postTypes, $amount, $includedCategories, $speed, $showIfEmpty);
             }
         }
     }

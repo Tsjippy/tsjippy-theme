@@ -1,13 +1,11 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
-  "name": "sim/displayname",
+  "apiVersion": 3,
+  "name": "tsjippy/displayname",
   "version": "0.1.0",
   "title": "Display name",
   "category": "widgets",
   "description": "A quick way to add the displayname of an user",
-  "textdomain": "sim",
-  "editorScript": "file:./index.js",
-  "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css"
+  "textdomain": "tsjippy",
+  "editorScript": "file:./index.js"
 }

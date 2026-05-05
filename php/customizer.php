@@ -1,5 +1,5 @@
 <?php
-namespace SIMTHEME;
+namespace TSJIPPYTHEME;
 
 if (class_exists('WP_Customize_Control')) {
     class WP_Customize_Label_Control extends \WP_Customize_Control {

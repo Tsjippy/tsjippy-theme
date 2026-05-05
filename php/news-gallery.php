@@ -1,5 +1,5 @@
 <?php
-namespace SIMTHEME;
+namespace TSJIPPYTHEME;
 
 /**
  * Shows the news Gallery
@@ -88,7 +88,8 @@ function showNewsGallery(){
         );
 
         //Hide confidential items
-        $confidentialGroups	= (array)\SIM\getModuleOption('contentfilter', 'confidential-roles');
+        // TO DO use a filter
+        $confidentialGroups	= TSJIPPY\CONTENTFILTER\SETTINGS['confidential-roles'] ?? [];
         
         if(array_intersect($confidentialGroups, $user->roles)){
             $args['tax_query'][] =

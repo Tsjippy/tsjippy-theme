@@ -1,6 +1,6 @@
 <?php
-namespace SIMTHEME;
-use SIM;
+namespace TSJIPPYTHEME;
+use TSJIPPY;
 
 //Remove the featured image from the page and post content
 add_action( 'init', function() {
@@ -33,7 +33,8 @@ add_filter( 'protected_title_format', function () {
 //Add a title section below the menu
 add_action('generate_after_header', function (){
 
-	if(function_exists('SIM\CONTENTFILTER\isProtected') && SIM\CONTENTFILTER\isProtected()){
+	// TO DO use filter
+	if(function_exists('TSJIPPY\CONTENTFILTER\isProtected') && TSJIPPY\CONTENTFILTER\isProtected()){
 		return '';
 	}
 
@@ -50,7 +51,7 @@ add_action('generate_after_header', function (){
 	//Or an archive page (category of news)
 	}elseif(is_category() || is_tax() || is_archive()){
 		$category	= get_queried_object();
-		$title		= apply_filters('sim-theme-archive-page-title', ucfirst($category->name).' Posts', $category);
+		$title		= apply_filters('tsjippy-theme-archive-page-title', ucfirst($category->name).' Posts', $category);
 	}
 	
 	//change title of all pages except the frontpage

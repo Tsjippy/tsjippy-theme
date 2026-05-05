@@ -9,7 +9,7 @@ class ComposerStaticInit8c794d5c11188e84db3ab71a4509e8bd
     public static $prefixLengthsPsr4 = array (
         'T' => 
         array (
-            'Tsjippy\\SimTheme\\' => 17,
+            'Tsjippy\\TSJIPPYTHEME\\' => 21,
         ),
         'M' => 
         array (
@@ -18,7 +18,7 @@ class ComposerStaticInit8c794d5c11188e84db3ab71a4509e8bd
     );
 
     public static $prefixDirsPsr4 = array (
-        'Tsjippy\\SimTheme\\' => 
+        'Tsjippy\\TSJIPPYTHEME\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

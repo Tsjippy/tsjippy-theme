@@ -1,5 +1,5 @@
 <?php
-namespace SIMTHEME;
+namespace TSJIPPYTHEME;
 
 add_action( 'wp_enqueue_scripts', function(){
 	$baseUrl	= get_bloginfo('stylesheet_directory');
@@ -12,8 +12,8 @@ add_action( 'wp_enqueue_scripts', function(){
  */
 add_action( 'customize_controls_enqueue_scripts', function() {
     wp_enqueue_script(
-        'sim-theme-customizer-control',
-        get_bloginfo('stylesheet_directory') . '/js/customizer.js',
+        'tsjippy-theme-customizer-control',
+        get_bloginfo('stylesheet_directory') . '/js/customizer.min.js',
         array( 'customize-controls' ),
         '20180924',
         true

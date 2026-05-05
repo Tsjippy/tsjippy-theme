@@ -1,5 +1,5 @@
 <?php
-namespace SIMTHEME;
+namespace TSJIPPYTHEME;
 
 //Only show read more on home and news page
 add_filter( 'excerpt_more', function ( $more ) {
