@@ -14,7 +14,7 @@
 ### Added
 
 ### Changed
-- support for sim-base theme
+- support for tsjippy-shared-functionality theme
 
 ### Fixed
 
