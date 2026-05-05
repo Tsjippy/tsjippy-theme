@@ -7,6 +7,7 @@
 ### Changed
 
 ### Fixed
+- run theme update actions using the new code
 
 ### Updated
 
