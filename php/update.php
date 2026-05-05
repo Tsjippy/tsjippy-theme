@@ -17,15 +17,15 @@ add_filter( 'themes_api', function ( $res, $action, $args ) {
 		return $res;
 	}
 
-	$github					= new SIM\GITHUB\Github();
-	return $github->pluginData(THEME_PATH, 'Tsjippy', 'sim-theme', [
+	$github					= new TSJIPPY\GITHUB\Github();
+	return $github->pluginData(THEME_PATH, 'Tsjippy', 'tsjippy-theme', [
 		'active_installs'	=> 2, 
 		'donate_link'		=> 'harmseninnigeria.nl', 
 		'rating'			=> 5, 
 		'ratings'			=> [4,5,5,5,5,5], 
 		'banners'			=> [
-			'high'	=> SIM\PICTURESURL."/banner-1544x500.jpg",
-			'low'	=> SIM\PICTURESURL."/banner-772x250.jpg"
+			'high'	=> TSJIPPY\PICTURESURL."/banner-1544x500.jpg",
+			'low'	=> TSJIPPY\PICTURESURL."/banner-772x250.jpg"
 		], 
 		'tested'			=> '6.6.2'		
 	]);
@@ -33,18 +33,18 @@ add_filter( 'themes_api', function ( $res, $action, $args ) {
 }, 10, 3);
 
 add_filter( 'pre_set_site_transient_update_themes', function($transient){
-	if(!class_exists('SIM\GITHUB\Github')){
+	if(!class_exists('TSJIPPY\GITHUB\Github')){
 		return $transient;
 	}
-	$github			= new SIM\GITHUB\Github();
+	$github			= new TSJIPPY\GITHUB\Github();
 
-	$item			= $github->getVersionInfo(THEME_PATH, 'Tsjippy', 'sim-theme');
+	$item			= $github->getVersionInfo(THEME_PATH, 'Tsjippy', 'tsjippy-theme');
 
 	// Git has a newer version
 	if(isset($item->new_version)){
-		$transient->response['sim-theme']	= (array)$item;
+		$transient->response['tsjippy-theme']	= (array)$item;
 	}else{
-		$transient->no_update['sim-theme']	= (array)$item;
+		$transient->no_update['tsjippy-theme']	= (array)$item;
 	}
 
 	return $transient;
@@ -52,12 +52,12 @@ add_filter( 'pre_set_site_transient_update_themes', function($transient){
 
 add_action('admin_menu', function(){
 	add_submenu_page('themes.php', 'Update', 'Update', 'edit_theme_options', 'update', function($test){
-		$github		= new SIM\GITHUB\Github();
-		$release	= $github->getLatestRelease('tsjippy', 'SIM-Theme', true);
+		$github		= new TSJIPPY\GITHUB\Github();
+		$release	= $github->getLatestRelease('tsjippy', 'tsjippy-theme', true);
 		$theme		= wp_get_theme('sim-theme');
 
 		if(version_compare($release['tag_name'], $theme->version)){
-			$url  		= wp_nonce_url( admin_url( 'update.php?action=upgrade-theme&amp;theme=' . urlencode( 'sim-theme' ) ), 'upgrade-theme_sim-theme' );
+			$url  		= wp_nonce_url( admin_url( 'update.php?action=upgrade-theme&amp;theme=' . urlencode( 'tsjippy-theme' ) ), 'upgrade-theme_tsjippy-theme' );
 
 			$link   = "<a href='$url' class='update-link'>Update to {$release['tag_name']}</a>";
 			echo "Checking for update<br>Current version $theme->version<br>Remote version {$release['tag_name']}<br>$link";
