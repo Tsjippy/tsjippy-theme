@@ -7,6 +7,15 @@
 ### Changed
 
 ### Fixed
+
+## [2.1.9] - 2026-05-05
+
+
+### Added
+
+### Changed
+
+### Fixed
 - check for shared-functionality theme
 
 ## [2.1.8] - 2025-12-01
