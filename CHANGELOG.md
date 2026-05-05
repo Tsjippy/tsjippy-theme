@@ -6,6 +6,7 @@
 
 ### Changed
 - update workflows
+- from sim-theme to tsjippy-theme
 
 ### Fixed
 
