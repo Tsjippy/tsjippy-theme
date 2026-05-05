@@ -3,13 +3,18 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
-- filter tsjippy-theme-news-gallery
 
 ### Changed
 
 ### Fixed
 
 ### Updated
+
+## [3.0.1] - 2026-05-05
+
+
+### Added
+- filter tsjippy-theme-news-gallery
 
 ## [3.0.0] - 2026-05-05
 
