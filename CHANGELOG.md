@@ -5,6 +5,15 @@
 ### Added
 
 ### Changed
+
+### Fixed
+
+## [3.0.0] - 2026-05-05
+
+
+### Added
+
+### Changed
 - update workflows
 - from sim-theme to tsjippy-theme
 
