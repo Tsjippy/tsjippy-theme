@@ -10,27 +10,6 @@
 
 ### Updated
 
-## [3.0.0.7] - 2026-05-05
-
-
-## [3.0.0.3] - 2026-05-05
-
-
-### Changed
-- use shared workflow files
-- empty line removal
-
-## [3.0.0.2] - 2026-05-05
-
-
-### Added
-
-### Changed
-- use shared workflow files
-- empty line removal
-
-### Fixed
-
 ## [3.0.0] - 2026-05-05
 
 
