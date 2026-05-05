@@ -5,12 +5,17 @@
 ### Added
 
 ### Changed
-- use shared workflow files
-- empty line removal
 
 ### Fixed
 
 ### Updated
+
+## [3.0.0.3] - 2026-05-05
+
+
+### Changed
+- use shared workflow files
+- empty line removal
 
 ## [3.0.0.2] - 2026-05-05
 
