@@ -3,6 +3,7 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+- filter tsjippy-theme-news-gallery
 
 ### Changed
 
