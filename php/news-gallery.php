@@ -87,19 +87,7 @@ function showNewsGallery(){
             ),
         );
 
-        //Hide confidential items
-        // TO DO use a filter
-        $confidentialGroups	= TSJIPPY\CONTENTFILTER\SETTINGS['confidential-roles'] ?? [];
-        
-        if(array_intersect($confidentialGroups, $user->roles)){
-            $args['tax_query'][] =
-                array(
-                    'taxonomy' => 'events',
-                    'field'    => 'term_id',
-                    'terms'    => [get_cat_ID('Confidential')],
-                    'operator' => 'NOT IN'
-                );
-        }
+        $args = apply_filters('tsjippy-theme-news-query', $args, $user);
     }
     
     //Get all the posts using the previously defined arguments

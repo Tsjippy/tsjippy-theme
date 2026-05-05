@@ -66,3 +66,21 @@ add_action('admin_menu', function(){
 		}
 	});
 });
+
+add_action('upgrader_process_complete', __NAMESPACE__.'\themeUpdated', 10, 2);
+function themeUpdated($upgraderObject, $options) {
+    // Check if it's a theme update
+    if ($options['action'] == 'update' && $options['type'] == 'theme') {
+		$oldVersion = $upgraderObject->skin->plugin_info['Version'];
+
+		TSJIPPY\printArray($oldVersion);
+
+        // Run your custom code here
+		if(version_compare('3.0.1', $oldVersion)){
+			// Rename option
+			$old	= get_option('theme_mods_SIM-Theme', '');
+
+			update_option('theme_mods_tsjippy-theme', $old);
+		}
+    }
+}
