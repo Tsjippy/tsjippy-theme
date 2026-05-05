@@ -7,15 +7,15 @@ jobs:
     name: Update wp theme version
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v3
+        - uses: actions/checkout@v6
 
-        - uses: actions/setup-node@v1
+        - uses: actions/setup-node@v6
 
         - name: Update version
           run: python ./.github/workflows/update_version.py ${{ github.event.release.name }}
 
         - name: Update wp theme version
-          uses: test-room-7/action-update-file@v1
+          uses: test-room-7/action-update-file@v2
           with:
               file-path: |
                 style.css
