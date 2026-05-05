@@ -6,6 +6,7 @@
 
 ### Changed
 - use shared workflow files
+- empty line removal
 
 ### Fixed
 
