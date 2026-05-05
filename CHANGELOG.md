@@ -7,9 +7,14 @@
 ### Changed
 
 ### Fixed
-- run theme update actions using the new code
 
 ### Updated
+
+## [3.0.2] - 2026-05-05
+
+
+### Fixed
+- run theme update actions using the new code
 
 ## [3.0.1] - 2026-05-05
 
