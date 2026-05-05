@@ -70,17 +70,25 @@ add_action('admin_menu', function(){
 add_action('upgrader_process_complete', __NAMESPACE__.'\themeUpdated', 10, 2);
 function themeUpdated($upgraderObject, $options) {
     // Check if it's a theme update
-    if ($options['action'] == 'update' && $options['type'] == 'theme') {
-		$oldVersion = $upgraderObject->skin->plugin_info['Version'];
+    if (
+		$options['action'] == 'update' && 
+		$options['type'] == 'theme' &&
+		in_array(THEME, $options['themes'])
+	) {
+		$oldVersion = $upgraderObject->skin->theme_info['Version'];
 
 		TSJIPPY\printArray($oldVersion);
 
-        // Run your custom code here
-		if(version_compare('3.0.1', $oldVersion)){
-			// Rename option
-			$old	= get_option('theme_mods_SIM-Theme', '');
-
-			update_option('theme_mods_tsjippy-theme', $old);
-		}
+        wp_schedule_single_event(time() + 10, 'tsjippy_theme_update_action', [ $oldVersion ]);
     }
 }
+
+// Runs 10 seconds after a succesfull update of a tsjippy- plugin to be able to use the new files
+add_action( 'tsjippy_theme_update_action', function($oldVersion){
+    if(version_compare('3.0.1', $oldVersion)){
+		// Rename option
+		$old	= get_option('theme_mods_SIM-Theme', '');
+
+		update_option('theme_mods_tsjippy-theme', $old);
+	}
+} );
