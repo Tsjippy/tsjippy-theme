@@ -5,14 +5,21 @@
 ### Added
 
 ### Changed
+
+### Fixed
+
+### Updated
+
+## [3.0.3] - 2026-05-06
+
+
+### Changed
 - added update action
 
 ### Fixed
 - run theme update actions using the new code
 - rename sim blocks to tsjippy blocks
 - rest api prefix
-
-### Updated
 
 ## [3.0.1] - 2026-05-05
 
