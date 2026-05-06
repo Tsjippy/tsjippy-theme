@@ -96,7 +96,7 @@ add_action( 'tsjippy_theme_update_action', function($oldVersion){
 		}
 	}
 
-	if(version_compare('3.0.2', $oldVersion)){
+	if(version_compare('3.0.4', $oldVersion)){
 		$blocks	= get_option('widget_block');
 
 		foreach($blocks as &$block){
