@@ -97,7 +97,14 @@ add_action( 'tsjippy_theme_update_action', function($oldVersion){
 	if(version_compare('3.0.2', $oldVersion)){
 		$blocks	= get_option('widget_block');
 
-		update_option('widget_block', str_replace('<!-- wp:sim/', '<!-- wp:tsjippy/', $blocks));
+		foreach($blocks as &$block){
+			if(is_array($block)){
+				foreach($block as &$content){
+					$content	= str_replace('<!-- wp:sim/', '<!-- wp:tsjippy/', $content);
+				}
+			}
+		}
+		update_option('widget_block', $blocks);
 
 		$posts = $wpdb->get_results( "SELECT * FROM {$wpdb->posts} WHERE post_content LIKE '%<!-- wp:sim/%'" );
 		foreach($posts as $post){
