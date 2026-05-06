@@ -10,6 +10,7 @@
 ### Fixed
 - run theme update actions using the new code
 - rename sim blocks to tsjippy blocks
+- rest api prefix
 
 ### Updated
 
