@@ -58,9 +58,9 @@ document.addEventListener("DOMContentLoaded",function() {
 			document.querySelector("#welcome-message").classList.add('hidden');
 
 			let formData = new FormData();
-			formData.append('_wpnonce', sim.restNonce);
+			formData.append('_wpnonce', tsjippy.restNonce);
 			fetch(
-				`${sim.baseUrl}/wp-json${sim.restApiPrefix}/frontpage/hide_welcome`, 
+				`${tsjippy.baseUrl}/wp-json${tsjippy.restApiPrefix}/frontpage/hide_welcome`, 
 				{
 					method: 'POST',
 					credentials: 'same-origin',
