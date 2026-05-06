@@ -5,6 +5,7 @@
 ### Added
 
 ### Changed
+- added update action
 
 ### Fixed
 - run theme update actions using the new code
