@@ -91,7 +91,9 @@ add_action( 'tsjippy_theme_update_action', function($oldVersion){
 		// Rename option
 		$old	= get_option('theme_mods_SIM-Theme', '');
 
-		update_option('theme_mods_tsjippy-theme', $old);
+		if(!empty($old)){
+			update_option('theme_mods_tsjippy-theme', $old);
+		}
 	}
 
 	if(version_compare('3.0.2', $oldVersion)){
