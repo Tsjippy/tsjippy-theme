@@ -5,6 +5,7 @@
 ### Added
 
 ### Changed
+- do not use sweetalert
 
 ### Fixed
 
