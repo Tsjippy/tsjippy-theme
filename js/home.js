@@ -10,19 +10,16 @@ document.addEventListener("DOMContentLoaded",function() {
 		//remove params again
 		window.history.replaceState({}, document.title, window.location.href.split('?')[0]);
 
-		let options = {
-			icon: type.toLowerCase(),
-			title: type,
-			text: text,
-			confirmButtonColor: "#bd2919",
-		};
+		if(Main != undefined && Main.Alert != undefined){
 
-		//show the message
-		if(document.fullscreenElement != null){
-			options['target']	= document.fullscreenElement;
+			let options = {
+				title: type
+			};
+
+			new Main.Alert(text, type.toLowerCase(), options);
+		}else{
+			alert();
 		}
-
-		Swal.fire(options);
 	}
 
 	var scrollTop = 0;

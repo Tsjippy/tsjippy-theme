@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'wp_enqueue_scripts', function(){
 	$baseUrl	= get_bloginfo('stylesheet_directory');
-	wp_enqueue_script('tsjippy_home_script', "$baseUrl/js/home.min.js", array('sweetalert'), wp_get_theme()->get('Version'), true);
+	wp_enqueue_script('tsjippy_home_script', "$baseUrl/js/home.min.js", [], wp_get_theme()->get('Version'), true);
 	wp_enqueue_style( 'tsjippy_frontpage_style', "$baseUrl/css/frontpage.min.css", array(), wp_get_theme()->get('Version'));
 });
 
