@@ -5,16 +5,11 @@
 ### Added
 
 ### Changed
+- do not use sweetalert
 
 ### Fixed
 
 ### Updated
-
-## [3.0.6] - 2026-05-07
-
-
-### Changed
-- do not use sweetalert
 
 ## [3.0.5] - 2026-05-07
 
