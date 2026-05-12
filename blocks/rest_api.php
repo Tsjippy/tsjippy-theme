@@ -10,7 +10,9 @@ add_action( 'rest_api_init', function () {
 		array(
 			'methods' 				=> 'GET',
 			'callback' 				=> __NAMESPACE__.'\displayName',
-			'permission_callback' 	=> '__return_true',
+			'permission_callback' 	=> function(){
+				return current_user_can('read');
+			},
 		)
 	);
 
@@ -21,7 +23,9 @@ add_action( 'rest_api_init', function () {
 		array(
 			'methods' 				=> 'GET',
 			'callback' 				=> __NAMESPACE__.'\loginCount',
-			'permission_callback' 	=> '__return_true',
+			'permission_callback' 	=> function(){
+				return current_user_can('read');
+			},
 		)
 	);
 
@@ -32,7 +36,9 @@ add_action( 'rest_api_init', function () {
 		array(
 			'methods' 				=> 'GET',
 			'callback' 				=> __NAMESPACE__.'\welcomeMessage',
-			'permission_callback' 	=> '__return_true',
+			'permission_callback' 	=> function(){
+				return current_user_can('read');
+			},
 		)
 	);
 } );
