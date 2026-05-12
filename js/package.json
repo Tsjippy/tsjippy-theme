@@ -4,8 +4,8 @@
   "description": "Home",
   "main": "./home.js",
   "scripts": {
-    "home": "webpack --watch --entry ./home.js --output-path . --output-filename home.min.js --progress --mode=production --devtool source-map",
-    "customizer": "webpack --watch --entry ./customizer.js --output-path . --output-filename customizer.min.js --progress --mode=production --devtool source-map",
+    "home": "webpack --entry ./home.js --output-path . --output-filename home.min.js --progress --mode=production --devtool source-map",
+    "customizer": "webpack --entry ./customizer.js --output-path . --output-filename customizer.min.js --progress --mode=production --devtool source-map",
     "all": "run-p home customizer"
   },
   "author": "Ewald Harmsen",

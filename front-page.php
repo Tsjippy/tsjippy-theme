@@ -33,7 +33,7 @@ get_header('frontpage'); ?>
 			 * @since 0.1
 			 */
 			do_action( 'generate_before_main_content' );
-			do_action( 'sim_frontpage_before_main_content' );
+			do_action( 'tsjippy_frontpage_before_main_content' );
 
 			if ( generate_has_default_loop() ) {
 				while ( have_posts() ) :

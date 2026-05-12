@@ -100,6 +100,14 @@ add_action('generate_before_header', function(){
 
 // Add darkmode logo
 add_filter('generate_logo_output', __NAMESPACE__.'\addDarkThemeLogo', 10, 3);
+/**
+ * Adds a dark theme logo
+ *
+ * @param string $html The HTML for the logo
+ * @param string $logoUrl The URL of the logo
+ * @param string $htmlAttr The HTML attributes for the logo
+ * @return string The revised HTML for the logo
+ */
 function addDarkThemeLogo($html, $logoUrl, $htmlAttr){
     $ext            = pathinfo($logoUrl, PATHINFO_EXTENSION);
     $darkModeUrl    = str_replace(".$ext", "_DM.$ext", $logoUrl);
