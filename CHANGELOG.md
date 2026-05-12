@@ -5,12 +5,19 @@
 ### Added
 
 ### Changed
+
+### Fixed
+
+### Updated
+
+## [3.0.7] - 2026-05-12
+
+
+### Changed
 - do not use sweetalert
 
 ### Fixed
 - frontpage hook
-
-### Updated
 
 ## [3.0.5] - 2026-05-07
 
