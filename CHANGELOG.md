@@ -5,6 +5,7 @@
 ### Added
 
 ### Changed
+- permission callback for rest api
 
 ### Fixed
 
