@@ -8,6 +8,7 @@
 - do not use sweetalert
 
 ### Fixed
+- frontpage hook
 
 ### Updated
 
