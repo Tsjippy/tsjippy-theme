@@ -18,9 +18,9 @@ function showNewsGallery(){
     $args['date_query']		= array(
         array(
             'after' => array(
-                'year' => date('Y', strtotime("-$maxNewsAge")),
-                'month' => date('m', strtotime("-$maxNewsAge")),
-                'day' => date('d'),
+                'year' => gmdate('Y', strtotime("-$maxNewsAge")),
+                'month' => gmdate('m', strtotime("-$maxNewsAge")),
+                'day' => gmdate('d'),
             )
         )
     );
@@ -39,7 +39,7 @@ function showNewsGallery(){
             ),
             array(
                 'key' => 'expirydate',
-                'value' => date('Y-m-d'),
+                'value' => gmdate('Y-m-d'),
                 'compare' => '>',
             ),
             array(
