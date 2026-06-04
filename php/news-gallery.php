@@ -1,21 +1,23 @@
 <?php
+
 namespace TSJIPPYTHEME;
 
 /**
  * Shows the news Gallery
  */
-function showNewsGallery(){
-    if(!get_theme_mod('news_posttypes')){
+function showNewsGallery()
+{
+    if (!get_theme_mod('news_posttypes')) {
         return;
     }
-    
+
     $postTypes              = array_keys(get_theme_mod('news_posttypes'));
     $maxNewsAge             = get_theme_mod('max_news_age');
     $args                   = array('ignore_sticky_posts' => true,);
-    $args['post_type'] 		= $postTypes;
-    $args['post_status'] 	= 'publish';
+    $args['post_type']         = $postTypes;
+    $args['post_status']     = 'publish';
 
-    $args['date_query']		= array(
+    $args['date_query']        = array(
         array(
             'after' => array(
                 'year' => gmdate('Y', strtotime("-$maxNewsAge")),
@@ -24,9 +26,9 @@ function showNewsGallery(){
             )
         )
     );
-    
+
     //exclude private events and user pages
-    $args['meta_query']		= array(
+    $args['meta_query']        = array(
         'relation' => 'AND',
         array(
             'key' => 'onlyfor',
@@ -48,17 +50,17 @@ function showNewsGallery(){
             )
         ),
         array(
-            'key'		=> 'user_id',
-            'compare'	=> 'NOT EXISTS'
+            'key'        => 'user_id',
+            'compare'    => 'NOT EXISTS'
         ),
         array(
-            'key'		=> 'skipgallery',
-            'compare'	=> 'NOT EXISTS'
+            'key'        => 'skipgallery',
+            'compare'    => 'NOT EXISTS'
         )
     );
-    
+
     //If not logged in..
-    if ( !is_user_logged_in() ) {
+    if (!is_user_logged_in()) {
         //Only get news wih the public category
         $blogCategories = [get_cat_ID('Public')];
         $args['tax_query'] = array(
@@ -68,10 +70,10 @@ function showNewsGallery(){
                 'terms'    => $blogCategories,
             ),
         );
-        
+
         //Do not show password protected news
         $args['has_password'] = false;
-    }else{
+    } else {
         $user = wp_get_current_user();
 
         //exclude birthdays and anniversaries
@@ -80,8 +82,8 @@ function showNewsGallery(){
                 'taxonomy' => 'events',
                 'field'    => 'term_id',
                 'terms'    => [
-                    get_term_by('slug', 'anniversary','events')->term_id,
-                    get_term_by('slug', 'birthday','events')->term_id
+                    get_term_by('slug', 'anniversary', 'events')->term_id,
+                    get_term_by('slug', 'birthday', 'events')->term_id
                 ],
                 'operator' => 'NOT IN'
             ),
@@ -89,18 +91,18 @@ function showNewsGallery(){
 
         $args = apply_filters('tsjippy-theme-news-query', $args, $user);
     }
-    
-    //Get all the posts using the previously defined arguments
-    $loop = new \WP_Query( $args );
 
-    if ( ! $loop->have_posts() ) {
-        
-        if(get_theme_mod('hide_news_gallery_if_empty', false)){
+    //Get all the posts using the previously defined arguments
+    $loop = new \WP_Query($args);
+
+    if (! $loop->have_posts()) {
+
+        if (get_theme_mod('hide_news_gallery_if_empty', false)) {
             return;
         }
-        
+
         //Show message if there is no news
-        ?>
+?>
         <article id="news">
             <div id="rowwrap">
                 <h2 id="news-title">Latest News</h2>
@@ -118,7 +120,7 @@ function showNewsGallery(){
                 <div id="newslinkdiv"></div>
             </div>
         </article>
-        <?php
+    <?php
         return;
     }
 
@@ -130,7 +132,7 @@ function showNewsGallery(){
         'class' => array(),
         'span'   => array(),
     );
-    
+
     $i = 1;
     ?>
     <article id="news">
@@ -138,37 +140,40 @@ function showNewsGallery(){
             <h2 id="news-title">Latest News</h2>
             <div class="row">
                 <?php
-                while ( $loop->have_posts() ){
+                while ($loop->have_posts()) {
                     $loop->the_post();
-                    
-                    ?>
+
+                ?>
                     <article class="news-article">
                         <div class="card card-plain card-blog">
                             <div class="card-image">
                                 <?php
-                                if ( has_post_thumbnail() ){
-                                    echo '<a href="'.get_permalink().'" style="background-image: url('.get_the_post_thumbnail_url().');"></a>';
+                                if (has_post_thumbnail()) {
+                                    echo '<a href="' . get_permalink() . '" style="background-image: url(' . get_the_post_thumbnail_url() . ');"></a>';
                                 }
                                 ?>
                             </div>
                             <div class="content">
                                 <h4 class="card-title entry-title">
-                                    <a class="blog-item-title-link" href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark">
-                                        <?php echo wp_kses( force_balance_tags( get_the_title() ), $allowedHtml ); ?>
+                                    <a class="blog-item-title-link" href="<?php echo esc_url(get_permalink()); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark">
+                                        <?php echo wp_kses(force_balance_tags(get_the_title()), $allowedHtml); ?>
                                     </a>
                                 </h4>
-                                <div class="card-description"><?php echo force_balance_tags(wp_kses_post( get_the_excerpt())); ?></div>
+                                <div class="card-description"><?php echo force_balance_tags(wp_kses_post(get_the_excerpt())); ?></div>
                             </div>
                         </div>
                     </article>
-                    <?php
+                <?php
                     $i++;
                 }
                 ?>
             </div>
-        <div id="newslinkdiv"><p><a name="newslink" id="newslink" href="'.SITEURL.'/news/">Read all news items →</a></p></div></div>
+            <div id="newslinkdiv">
+                <p><a name="newslink" id="newslink" href="'.SITEURL.'/news/">Read all news items →</a></p>
+            </div>
+        </div>
     </article>
-    <?php
+<?php
 
     wp_reset_postdata();
 }

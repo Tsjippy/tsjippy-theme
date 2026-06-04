@@ -1,4 +1,5 @@
 <?php
+
 namespace TSJIPPYTHEME;
 
 /**
@@ -12,61 +13,61 @@ namespace TSJIPPYTHEME;
  * @package GeneratePress
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
-add_action( 'wp_enqueue_scripts', function(){
+add_action('wp_enqueue_scripts', function () {
 	$baseUrl	= get_bloginfo('stylesheet_directory');
 	wp_enqueue_script('tsjippy_home_script', "$baseUrl/js/home.min.js", [], wp_get_theme()->get('Version'), true);
-	wp_enqueue_style( 'tsjippy_frontpage_style', "$baseUrl/css/frontpage.min.css", array(), wp_get_theme()->get('Version'));
+	wp_enqueue_style('tsjippy_frontpage_style', "$baseUrl/css/frontpage.min.css", array(), wp_get_theme()->get('Version'));
 });
 
 get_header('frontpage'); ?>
 
-	<div <?php generate_do_attr( 'content' ); ?>>
-		<main <?php generate_do_attr( 'main' ); ?>>
-			<?php
-			/**
-			 * generate_before_main_content hook.
-			 *
-			 * @since 0.1
-			 */
-			do_action( 'generate_before_main_content' );
-			do_action( 'tsjippy_frontpage_before_main_content' );
+<div <?php generate_do_attr('content'); ?>>
+	<main <?php generate_do_attr('main'); ?>>
+		<?php
+		/**
+		 * generate_before_main_content hook.
+		 *
+		 * @since 0.1
+		 */
+		do_action('generate_before_main_content');
+		do_action('tsjippy_frontpage_before_main_content');
 
-			if ( generate_has_default_loop() ) {
-				while ( have_posts() ) :
+		if (generate_has_default_loop()) {
+			while (have_posts()) :
 
-					the_post();
+				the_post();
 
-					generate_do_template_part( 'page' );
+				generate_do_template_part('page');
 
-				endwhile;
-			}
+			endwhile;
+		}
 
-			showGalleries();
-			
-			/**
-			 * generate_after_main_content hook.
-			 *
-			 * @since 0.1
-			 */
-			do_action( 'generate_after_main_content' );
-			?>
-		</main>
-	</div>
+		showGalleries();
 
-	<?php
-	/**
-	 * generate_after_primary_content_area hook.
-	 *
-	 * @since 2.0
-	 */
-	do_action( 'generate_after_primary_content_area' );
+		/**
+		 * generate_after_main_content hook.
+		 *
+		 * @since 0.1
+		 */
+		do_action('generate_after_main_content');
+		?>
+	</main>
+</div>
 
-	do_action('loop_end');
+<?php
+/**
+ * generate_after_primary_content_area hook.
+ *
+ * @since 2.0
+ */
+do_action('generate_after_primary_content_area');
 
-	generate_construct_sidebars();
+do_action('loop_end');
 
-	get_footer('frontpage');
+generate_construct_sidebars();
+
+get_footer('frontpage');

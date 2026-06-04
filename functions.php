@@ -1,13 +1,14 @@
 <?php
+
 namespace TSJIPPYTHEME;
 
 use Exception;
 
-define(__NAMESPACE__ .'\THEME', 'tsjippy-theme');
-define(__NAMESPACE__ .'\THEME_PATH', str_replace('\\', '/', __DIR__));
+define(__NAMESPACE__ . '\THEME', 'tsjippy-theme');
+define(__NAMESPACE__ . '\THEME_PATH', str_replace('\\', '/', __DIR__));
 
 // We cannot use the sim theme
-if(is_plugin_inactive('tsjippy-shared-functionality/tsjippy-shared-functionality.php') && is_plugin_inactive('sim-plugin/sim-plugin.php')){
+if (is_plugin_inactive('tsjippy-shared-functionality/tsjippy-shared-functionality.php') && is_plugin_inactive('sim-plugin/sim-plugin.php')) {
     $themes = wp_get_themes();
     unset($themes['Tsjippy theme']);
 

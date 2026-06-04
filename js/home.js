@@ -1,42 +1,45 @@
 console.log("Home.js loaded");
 
-document.addEventListener("DOMContentLoaded",function() {
-	// Show message 
- 	if(location['search'].includes('?message=')){
-		var param	= location.search.substr(1).split("&");
-		var text 	= decodeURIComponent(param[0].split("=")[1]);
-		var type 	= param[1].split("=")[1];
+document.addEventListener("DOMContentLoaded", function () {
+  // Show message
+  if (location["search"].includes("?message=")) {
+    var param = location.search.substr(1).split("&");
+    var text = decodeURIComponent(param[0].split("=")[1]);
+    var type = param[1].split("=")[1];
 
-		//remove params again
-		window.history.replaceState({}, document.title, window.location.href.split('?')[0]);
+    //remove params again
+    window.history.replaceState(
+      {},
+      document.title,
+      window.location.href.split("?")[0],
+    );
 
-		if(Main != undefined && Main.Alert != undefined){
+    if (Main != undefined && Main.Alert != undefined) {
+      let options = {
+        title: type,
+      };
 
-			let options = {
-				title: type
-			};
+      new Main.Alert(text, type.toLowerCase(), options);
+    } else {
+      alert();
+    }
+  }
 
-			new Main.Alert(text, type.toLowerCase(), options);
-		}else{
-			alert();
-		}
-	}
+  var scrollTop = 0;
 
-	var scrollTop = 0;
+  //Make the menu sticky after scroll
+  window.onscroll = function () {
+    var changeY;
+    //Small screen value
+    if (window.outerWidth < 768) {
+      changeY = 200;
+      //Other value
+    } else {
+      changeY = 120;
+    }
 
-	//Make the menu sticky after scroll
-	window.onscroll = function() {
-		var changeY;
-		//Small screen value
-		if (window.outerWidth < 768){
-			changeY = 200;
-		//Other value
-		}else{
-			changeY = 120;
-		}
-		
-		//Change to sticky menu
-		/* if(scrollTop == 0 && document.documentElement.scrollTop > changeY){
+    //Change to sticky menu
+    /* if(scrollTop == 0 && document.documentElement.scrollTop > changeY){
 			scrollTop = document.documentElement.scrollTop;
 			document.querySelector('body').classList.add("sticky");
 			document.getElementById('page').style['padding-top']= changeY+"px";
@@ -45,25 +48,25 @@ document.addEventListener("DOMContentLoaded",function() {
 			scrollTop = 0;
 			document.querySelector('body').classList.remove("sticky");
 			document.getElementById('page').style['padding-top']= '0px';
-		} */		
-	};
+		} */
+  };
 
-	let el=document.querySelector("#welcome-message-button");
-	if(el != null){
-		el.addEventListener("click", function(){
-			//Hide the message
-			document.querySelector("#welcome-message").classList.add('hidden');
+  let el = document.querySelector("#welcome-message-button");
+  if (el != null) {
+    el.addEventListener("click", function () {
+      //Hide the message
+      document.querySelector("#welcome-message").classList.add("hidden");
 
-			let formData = new FormData();
-			formData.append('_wpnonce', tsjippy.restNonce);
-			fetch(
-				`${tsjippy.baseUrl}/wp-json${tsjippy.restApiPrefix}/frontpage/hide_welcome`, 
-				{
-					method: 'POST',
-					credentials: 'same-origin',
-					body: formData
-				}
-			).catch(err => console.error(err));
-		});
-	}
+      let formData = new FormData();
+      formData.append("_wpnonce", tsjippy.restNonce);
+      fetch(
+        `${tsjippy.baseUrl}/wp-json${tsjippy.restApiPrefix}/frontpage/hide_welcome`,
+        {
+          method: "POST",
+          credentials: "same-origin",
+          body: formData,
+        },
+      ).catch((err) => console.error(err));
+    });
+  }
 });

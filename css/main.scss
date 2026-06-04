@@ -1,124 +1,127 @@
-@use 'global' as *;
-@use 'menu';
-@use 'pagetitle';
-@use 'darkmode';
+@use "global" as *;
+@use "menu";
+@use "pagetitle";
+@use "darkmode";
 
 /*Buttons */
-%buttons{
-	background-color: $primaryColor;
-	border-radius: 3px;
-	text-align: center;
-	/*margin-right: 10px;*/
+%buttons {
+  background-color: $primaryColor;
+  border-radius: 3px;
+  text-align: center;
+  /*margin-right: 10px;*/
 }
 
 /* footer at the bottom of the screen */
 body {
-	height: 100vh;
-	display: flex;
-    flex-direction: column;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 
-	div {
-		.button, 
-		.button:not(.small):focus{
-			@extend %buttons;
-			padding: 5px 10px;
-			
-			&:hover, &.active{
-				background-color: $secundaryColor;
-			}
-			
-			&.tablink{
-				margin-top: 15px;
-				background-color: $secundaryColor;
-				
-				&:hover, &.active{
-					background-color: $primaryColor;
-					color: white;
-					border-color: unset;
-				}
-			}
+  div {
+    .button,
+    .button:not(.small):focus {
+      @extend %buttons;
+      padding: 5px 10px;
 
-			:disabled{
-				background: darkgrey;
-			}
-		}
+      &:hover,
+      &.active {
+        background-color: $secundaryColor;
+      }
 
-		h4{
-			font-weight: bold;
-			color: $primaryColor;
-			margin: 15px 5px 5px;
-			font-size: inherit;
-		}
-	}
+      &.tablink {
+        margin-top: 15px;
+        background-color: $secundaryColor;
 
-	@media (max-width: $mobilewidth){
-		div.inside-article{
-			padding: 10px !important;
-		}
-	}
+        &:hover,
+        &.active {
+          background-color: $primaryColor;
+          color: white;
+          border-color: unset;
+        }
+      }
+
+      :disabled {
+        background: darkgrey;
+      }
+    }
+
+    h4 {
+      font-weight: bold;
+      color: $primaryColor;
+      margin: 15px 5px 5px;
+      font-size: inherit;
+    }
+  }
+
+  @media (max-width: $mobilewidth) {
+    div.inside-article {
+      padding: 10px !important;
+    }
+  }
 }
 
-.container.grid-container{
-	flex-grow: 1;
+.container.grid-container {
+  flex-grow: 1;
 }
 
 /* moretag layout */
-.moretag{
-	font-size: 15px;
-	border-radius: 30px;
-	color: white;
-	text-transform: uppercase;
-	text-align: center;
-	padding: 10px 20px;
-	display: block;
-	/*max-width: 133px;*/
-	margin: 20px auto 0 auto;
-	white-space: nowrap;
-	background-color: $primaryColor;
-	width: fit-content;
-	
-	/* on hover of the more tag*/
-	&:hover{
-		background-color:$secundaryColor;
-		color:white;
-	}
+.moretag {
+  font-size: 15px;
+  border-radius: 30px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 10px 20px;
+  display: block;
+  /*max-width: 133px;*/
+  margin: 20px auto 0 auto;
+  white-space: nowrap;
+  background-color: $primaryColor;
+  width: fit-content;
+
+  /* on hover of the more tag*/
+  &:hover {
+    background-color: $secundaryColor;
+    color: white;
+  }
 }
 
 /* paragraph text color*/
-p{
-	color: #676666;
+p {
+  color: #676666;
 }
 
-.wp-core-ui div .button{
-	@extend %buttons;
-	color: white;
-	border-color: unset;
-	
-	&:hover, &:active{
-		background-color: $secundaryColor;
-		color: white;
-		border-color: unset;
-	}
+.wp-core-ui div .button {
+  @extend %buttons;
+  color: white;
+  border-color: unset;
+
+  &:hover,
+  &:active {
+    background-color: $secundaryColor;
+    color: white;
+    border-color: unset;
+  }
 }
 
-#comments{
-	#submit{
-		@extend %buttons;
-	}
+#comments {
+  #submit {
+    @extend %buttons;
+  }
 }
 
-.button.small{
-	padding: 0px 10px;
+.button.small {
+  padding: 0px 10px;
 }
 
-a.button.small{
-	padding-top: 5px;
+a.button.small {
+  padding-top: 5px;
 }
 
-.hidden{
-	display: none;
+.hidden {
+  display: none;
 }
 
 input[type="checkbox"] {
-	accent-color: $secundaryColor;
+  accent-color: $secundaryColor;
 }

@@ -1,69 +1,70 @@
-#top-navigation{
-    background: white;
-    z-index: 10000;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 100px;
-    max-height: 100px;
+#top-navigation {
+  background: white;
+  z-index: 10000;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  max-height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  .site-logo {
+    flex: 1;
+  }
+
+  #top-menu-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    flex: 4;
+    padding: 20px 40px;
 
-    .site-logo{
-        flex: 1;
-    }
+    #top-menu {
+      display: inline-block;
 
-    #top-menu-wrapper{
+      & > ul {
         display: flex;
-        flex: 4;
-        padding: 20px 40px;
+        flex-wrap: wrap;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+      }
 
-        #top-menu {
-            display: inline-block;
-        
-            & > ul {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                list-style: none;
-                margin: 0;
-                padding-left: 0;
-            }
-        
-            li > a {
-                color: #000;
-                line-height: 40px;
-                font-weight: 600;
-                padding-left: 10px;
-                padding-right: 10px;
+      li > a {
+        color: #000;
+        line-height: 40px;
+        font-weight: 600;
+        padding-left: 10px;
+        padding-right: 10px;
 
-                &.button{
-                    line-height: 20px;
-                }
-            }
+        &.button {
+          line-height: 20px;
         }
+      }
     }
+  }
 
-    .menu-bar-items{
-        display: inline-block;
-        padding: 10px;
-        float: right;
+  .menu-bar-items {
+    display: inline-block;
+    padding: 10px;
+    float: right;
 
-        .menu-bar-item, .menu-item{
-            padding: 10px;
-        }
+    .menu-bar-item,
+    .menu-item {
+      padding: 10px;
     }
+  }
 }
 
-@media (max-width: 768px){
-    #top-navigation{
-        display: none;
-    }
+@media (max-width: 768px) {
+  #top-navigation {
+    display: none;
+  }
 }
 
-@media (max-height: 350px){
-    #top-navigation{
-        position: unset;
-    }
+@media (max-height: 350px) {
+  #top-navigation {
+    position: unset;
+  }
 }

@@ -1,42 +1,44 @@
-@use 'global' as *;
-@use 'main-image';
-@use 'news-gallery';
+@use "global" as *;
+@use "main-image";
+@use "news-gallery";
 
 /*prayerlooks*/
 #prayer-request h3 {
-	color: #444444;
-	font-weight: 500;
+  color: #444444;
+  font-weight: 500;
 }
 
-.logged-in{
-	/*Hide the login button, team section and ribbon section */
-	.big-title-slider-content .buttons a.btn:nth-child(1), 
-	#team, 
-	#ribbon, 
-	.big-title-slider-content .buttons a:nth-child(1){
-		display: none;
-	}
+.logged-in {
+  /*Hide the login button, team section and ribbon section */
+  .big-title-slider-content .buttons a.btn:nth-child(1),
+  #team,
+  #ribbon,
+  .big-title-slider-content .buttons a:nth-child(1) {
+    display: none;
+  }
 
-	/*Center the content of the event list on the homepage*/
-	div.wp-block-column:nth-child(2){
-		text-align: center;
-	}
-	
-	#agendabutton{
-		margin: auto;
-		margin-top: auto;
-		display: table;
-		margin-top: 5px;
-		padding: 5px 30px;
-	}
+  /*Center the content of the event list on the homepage*/
+  div.wp-block-column:nth-child(2) {
+    text-align: center;
+  }
+
+  #agendabutton {
+    margin: auto;
+    margin-top: auto;
+    display: table;
+    margin-top: 5px;
+    padding: 5px 30px;
+  }
 }
 
-#primary .inside-article, .widget-area .widget, #main .wp-block-group__inner-container{
-	padding-top: 0px; 
+#primary .inside-article,
+.widget-area .widget,
+#main .wp-block-group__inner-container {
+  padding-top: 0px;
 }
 
-.is-layout-flex.wp-container-3.wp-block-columns{
-	display: none;
+.is-layout-flex.wp-container-3.wp-block-columns {
+  display: none;
 }
 
 /* Why did I do this?
