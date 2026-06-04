@@ -6,6 +6,7 @@
 
 ### Changed
 - permission callback for rest api
+- date to gmdate
 
 ### Fixed
 
