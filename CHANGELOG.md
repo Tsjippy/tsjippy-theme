@@ -3,6 +3,7 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+- block filter, post children block, post categories block
 
 ### Changed
 - permission callback for rest api
