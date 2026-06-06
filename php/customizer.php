@@ -12,15 +12,22 @@ if (class_exists('WP_Customize_Control')) {
          */
         public function render_content()
         {
-            printf(
-                '<label class="customize-control-select"><span class="customize-control-title">%s</span></label>',
-                $this->label
-            );
+            ?>
+            <label class="customize-control-select">
+                <span class="customize-control-title">
+                    <?php echo esc_html($this->label); ?>
+                </span>
+            </label>
 
+            <?php
             $descriptionId   = '_customize-description-' . $this->id;
-            if (! empty($this->description)) : ?>
-                <span id="<?php echo esc_attr($descriptionId); ?>" class="description customize-control-description"><?php echo $this->description; ?></span>
-<?php endif;
+            if (! empty($this->description)){
+                ?>
+                <span id="<?php echo esc_attr($descriptionId); ?>" class="description customize-control-description">
+                    <?php echo esc_attr($this->description); ?>
+                </span>
+                <?php 
+            }
         }
     }
 }
