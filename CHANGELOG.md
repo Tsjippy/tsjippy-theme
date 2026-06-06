@@ -9,6 +9,7 @@
 - permission callback for rest api
 - date to gmdate
 - code layout
+- namespaced all constants
 
 ### Fixed
 
