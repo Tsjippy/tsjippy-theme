@@ -7,7 +7,7 @@ use TSJIPPY;
 add_action('rest_api_init', function () {
 	// show displayname
 	register_rest_route(
-		RESTAPIPREFIX . '/frontpage',
+		TSJIPPY\RESTAPIPREFIX . '/frontpage',
 		'/show_display_name',
 		array(
 			'methods' 				=> 'GET',
@@ -20,7 +20,7 @@ add_action('rest_api_init', function () {
 
 	// show login count
 	register_rest_route(
-		RESTAPIPREFIX . '/frontpage',
+		TSJIPPY\RESTAPIPREFIX . '/frontpage',
 		'/show_login_count',
 		array(
 			'methods' 				=> 'GET',
@@ -33,7 +33,7 @@ add_action('rest_api_init', function () {
 
 	// show welcome_message
 	register_rest_route(
-		RESTAPIPREFIX . '/frontpage',
+		TSJIPPY\RESTAPIPREFIX . '/frontpage',
 		'/show_welcome_message',
 		array(
 			'methods' 				=> 'GET',
@@ -46,7 +46,7 @@ add_action('rest_api_init', function () {
 
 	// show post children
     register_rest_route(
-        RESTAPIPREFIX,
+        TSJIPPY\RESTAPIPREFIX,
         '/show_children',
         array(
             'methods'                 => 'POST',
