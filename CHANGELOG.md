@@ -12,6 +12,7 @@
 - namespaced all constants
 
 ### Fixed
+- use pluginversion
 
 ### Updated
 
