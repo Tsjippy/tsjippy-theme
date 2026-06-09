@@ -4,6 +4,7 @@
 
 ### Added
 - block filter, post children block, post categories block
+- placeholder for textdomain
 
 ### Changed
 - permission callback for rest api
