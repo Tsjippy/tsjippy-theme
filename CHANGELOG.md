@@ -3,6 +3,17 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+
+### Changed
+
+### Fixed
+
+### Updated
+
+## [3.0.8.1] - 2026-06-11
+
+
+### Added
 - block filter, post children block, post categories block
 - placeholder for textdomain
 
@@ -16,8 +27,6 @@
 ### Fixed
 - use pluginversion
 - load blocks
-
-### Updated
 
 ## [3.0.7] - 2026-05-12
 
