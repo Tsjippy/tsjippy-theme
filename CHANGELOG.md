@@ -14,6 +14,7 @@
 
 ### Fixed
 - use pluginversion
+- load blocks
 
 ### Updated
 
