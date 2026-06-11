@@ -11,6 +11,7 @@
 - date to gmdate
 - code layout
 - namespaced all constants
+- updated style.css
 
 ### Fixed
 - use pluginversion
