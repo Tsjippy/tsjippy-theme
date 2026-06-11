@@ -10,7 +10,7 @@ define(__NAMESPACE__ . '\THEME_PATH', str_replace('\\', '/', __DIR__));
 // composer
 require 'lib/vendor/autoload.php';
 
-$files = glob(__DIR__  . '/php/*.php');
+$files = glob(__DIR__."/{php,blocks}/*.php", \GLOB_BRACE);
 foreach ($files as $file) {
     require_once($file);
 }
