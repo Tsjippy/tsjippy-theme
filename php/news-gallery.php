@@ -14,15 +14,15 @@ function showNewsGallery()
     $postTypes              = array_keys(get_theme_mod('news_posttypes'));
     $maxNewsAge             = get_theme_mod('max_news_age');
     $args                   = array('ignore_sticky_posts' => true,);
-    $args['post_type']         = $postTypes;
-    $args['post_status']     = 'publish';
+    $args['post_type']      = $postTypes;
+    $args['post_status']    = 'publish';
 
-    $args['date_query']        = array(
+    $args['date_query']     = array(
         array(
             'after' => array(
-                'year' => gmdate('Y', strtotime("-$maxNewsAge")),
+                'year'  => gmdate('Y', strtotime("-$maxNewsAge")),
                 'month' => gmdate('m', strtotime("-$maxNewsAge")),
-                'day' => gmdate('d'),
+                'day'   => gmdate('d'),
             )
         )
     );
@@ -31,21 +31,21 @@ function showNewsGallery()
     $args['meta_query']        = array(
         'relation' => 'AND',
         array(
-            'key' => 'onlyfor',
+            'key'     => 'tsjippy_only_for',
             'compare' => 'NOT EXISTS',
         ),
         array(
             'relation' => 'OR',
             array(
-                'key' => 'expirydate'
+                'key'  => 'tsjippy_expirydate'
             ),
             array(
-                'key' => 'expirydate',
-                'value' => gmdate('Y-m-d'),
+                'key'     => 'tsjippy_expirydate',
+                'value'   => gmdate('Y-m-d'),
                 'compare' => '>',
             ),
             array(
-                'key' => 'expirydate',
+                'key'     => 'tsjippy_expirydate',
                 'compare' => 'NOT EXISTS',
             )
         ),
@@ -54,7 +54,7 @@ function showNewsGallery()
             'compare'    => 'NOT EXISTS'
         ),
         array(
-            'key'        => 'skipgallery',
+            'key'        => 'tsjippy_skipgallery',
             'compare'    => 'NOT EXISTS'
         )
     );
@@ -102,7 +102,7 @@ function showNewsGallery()
         }
 
         //Show message if there is no news
-?>
+        ?>
         <article id="news">
             <div id="rowwrap">
                 <h2 id="news-title">Latest News</h2>
@@ -120,7 +120,7 @@ function showNewsGallery()
                 <div id="newslinkdiv"></div>
             </div>
         </article>
-    <?php
+        <?php
         return;
     }
 
