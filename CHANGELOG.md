@@ -5,11 +5,16 @@
 ### Added
 
 ### Changed
-- removed blocks
 
 ### Fixed
 
 ### Updated
+
+## [3.0.9] - 2026-06-23
+
+
+### Changed
+- removed blocks
 
 ## [3.0.8.1] - 2026-06-11
 
