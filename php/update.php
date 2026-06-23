@@ -75,7 +75,7 @@ function themeUpdated($upgraderObject, $options)
 	if (
 		$options['action'] == 'update' &&
 		$options['type'] == 'theme' &&
-		in_array(THEME, $options['themes'])
+		in_array(THEME, $options['themes'] ?? [])
 	) {
 		$oldVersion = $upgraderObject->skin->theme_info['Version'];
 
