@@ -34,6 +34,10 @@ get_header('frontpage'); ?>
 		 * @since 0.1
 		 */
 		do_action('generate_before_main_content');
+
+		/** 
+		 * Frontpage specific hook
+		*/
 		do_action('tsjippy-theme-frontpage-before-main-content');
 
 		if (generate_has_default_loop()) {
