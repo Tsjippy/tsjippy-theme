@@ -29,7 +29,7 @@ add_action('after_setup_theme', function () {
 
 //Removes the 'Protected:' part from posts titles
 add_filter('protected_title_format', function () {
-	return __('%s');
+	return '%s';
 });
 
 //Add a title section below the menu

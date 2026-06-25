@@ -3,7 +3,7 @@
         'name' => 'tsjippy/tsjippy-theme',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '03f9b7a7f0008b31278cfd87830ec47b3084ea84',
+        'reference' => '24faa1e7c85c1c889fcdf97b8f1ec4ca330883a1',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'tsjippy/tsjippy-theme' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '03f9b7a7f0008b31278cfd87830ec47b3084ea84',
+            'reference' => '24faa1e7c85c1c889fcdf97b8f1ec4ca330883a1',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

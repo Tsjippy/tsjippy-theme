@@ -6,7 +6,7 @@ use TSJIPPY;
 
 // add top menu
 add_action('init', function () {
-    register_nav_menu('top', __('Top menu'));
+    register_nav_menu('top', __('Top menu',  '%TEXTDOMAIN%'));
 });
 
 add_action('generate_before_header', function () {
