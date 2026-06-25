@@ -25,7 +25,7 @@ add_action('wp_enqueue_scripts', function () {
 
 get_header('frontpage'); ?>
 
-<div <?php generate_do_attr('content'); ?>>
+<div <?php generate_do_attr('content'); ?> id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<main <?php generate_do_attr('main'); ?>>
 		<?php
 		/**
