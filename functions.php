@@ -17,9 +17,9 @@ foreach ($files as $file) {
 
 /**
  * Transforms an url to a path
- * @param     string        $url             The url to be transformed
+ * @param     string $url The url to be transformed
  *
- * @return    string                        The path
+ * @return    string      The path
  */
 function urlToPath($url)
 {
@@ -31,7 +31,7 @@ function urlToPath($url)
         return $url;
     }
 
-    $siteUrl    = str_replace(['https://', 'http://'], '', SITEURL);
+    $siteUrl    = str_replace(['https://', 'http://'], '', site_url('', 'https'));
     $url        = str_replace(['https://', 'http://'], '', urldecode($url));
     $url        = explode('?', $url)[0];
 
