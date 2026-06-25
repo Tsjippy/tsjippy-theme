@@ -84,38 +84,3 @@ function themeUpdated($upgraderObject, $options)
 		wp_schedule_single_event(time() + 10, 'tsjippy_theme_update_action', [$oldVersion]);
 	}
 }
-
-// Runs 10 seconds after a succesfull update of a tsjippy- plugin to be able to use the new files
-add_action('tsjippy_theme_update_action', function ($oldVersion) {
-	global $wpdb;
-
-	if (version_compare('3.0.1', $oldVersion)) {
-		// Rename option
-		$old	= get_option('theme_mods_SIM-Theme', '');
-
-		if (!empty($old)) {
-			update_option('theme_mods_tsjippy-theme', $old);
-		}
-	}
-
-	if (version_compare('3.0.4', $oldVersion)) {
-		$blocks	= get_option('widget_block');
-
-		foreach ($blocks as &$block) {
-			if (is_array($block)) {
-				foreach ($block as &$content) {
-					$content	= str_replace('<!-- wp:sim/', '<!-- wp:tsjippy/', $content);
-				}
-			}
-		}
-		update_option('widget_block', $blocks);
-
-		$posts = $wpdb->get_results("SELECT * FROM {$wpdb->posts} WHERE post_content LIKE '%<!-- wp:sim/%'");
-		foreach ($posts as $post) {
-			wp_update_post([
-				'ID' 			=> $post->ID,
-				'post_content' 	=> str_replace('<!-- wp:sim/', '<!-- wp:tsjippy/', $post->post_content),
-			], true);
-		}
-	}
-});

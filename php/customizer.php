@@ -33,21 +33,21 @@ if (class_exists('WP_Customize_Control')) {
 }
 
 // Add home page customizer options
-if (! function_exists('simCustomizeRegister')) {
-    add_action('customize_register', __NAMESPACE__ . '\simCustomizeRegister', 30);
+if (! function_exists('tsjippyCustomizeRegister')) {
+    add_action('customize_register', __NAMESPACE__ . '\tsjippyCustomizeRegister', 30);
 
     /**
      * Add our base options to the Customizer.
      *
      * @param WP_Customize_Manager $wpCustomize Theme Customizer object.
      */
-    function simCustomizeRegister($wpCustomize)
+    function tsjippyCustomizeRegister($wpCustomize)
     {
         // Add a homepage panel
         $wpCustomize->add_panel(
-            'sim_frontpage_panel',
+            'tsjippy_frontpage_panel',
             array(
-                'title' => __('Home page', 'sim'),
+                'title' => __('Home page', 'tsjippy'),
                 'priority'     => 20,
             )
         );
@@ -70,7 +70,7 @@ if (! function_exists('simCustomizeRegister')) {
 function topNavigation($wpCustomize)
 {
     $wpCustomize->add_section(
-        'sim_layout_top_navigation',
+        'tsjippy_layout_top_navigation',
         array(
             'title' => __('Top Navigation', 'generatepress'),
             'priority' => 29,
@@ -88,13 +88,13 @@ function topNavigation($wpCustomize)
     $wpCustomize->add_control(
         'top_nav_alignment_setting',
         array(
-            'type' => 'select',
-            'label' => __('Top Navigation Alignment', 'sim'),
-            'section' => 'sim_layout_top_navigation',
+            'type'    => 'select',
+            'label'   => __('Top Navigation Alignment', 'tsjippy'),
+            'section' => 'tsjippy_layout_top_navigation',
             'choices' => array(
-                'left' => __('Left', 'generatepress'),
+                'left'   => __('Left', 'generatepress'),
                 'center' => __('Center', 'generatepress'),
-                'right' => __('Right', 'generatepress'),
+                'right'  => __('Right', 'generatepress'),
             ),
             'settings' => 'top_nav_alignment_setting',
             'priority' => 20,
@@ -108,11 +108,11 @@ function topNavigation($wpCustomize)
 function frontpageHeader($wpCustomize)
 {
     $wpCustomize->add_section(
-        'sim_header',
+        'tsjippy_header',
         array(
-            'title' => __('Header image and buttons', 'sim'),
+            'title' => __('Header image and buttons', 'tsjippy'),
             'priority' => 10,
-            'panel' => 'sim_frontpage_panel',
+            'panel' => 'tsjippy_frontpage_panel',
         )
     );
 
@@ -127,8 +127,8 @@ function frontpageHeader($wpCustomize)
         "header_image_height",
         [
             'type'            => 'number',
-            'label'         => __('The height of the images in pixels', 'sim'),
-            'section'       => 'sim_header',
+            'label'         => __('The height of the images in pixels', 'tsjippy'),
+            'section'       => 'tsjippy_header',
             'settings'      => "header_image_height",
             'priority'      => 6
         ]
@@ -139,8 +139,8 @@ function frontpageHeader($wpCustomize)
     );
 
     $headerImageOptions = [
-        'label'             => __('Frontpage Header Image', 'sim'),
-        'section'           => 'sim_header',
+        'label'             => __('Frontpage Header Image', 'tsjippy'),
+        'section'           => 'tsjippy_header',
         'settings'          => 'header_image',
         'priority'          => 5,
     ];
@@ -178,8 +178,8 @@ function frontpageHeader($wpCustomize)
     $wpCustomize->add_control(
         'first_button_page',
         [
-            'label'             => __('First button page', 'sim'),
-            'section'           => 'sim_header',
+            'label'             => __('First button page', 'tsjippy'),
+            'section'           => 'tsjippy_header',
             'settings'          => 'first_button_page',
             'priority'          => 10,
             'type'                => 'dropdown-pages'
@@ -197,8 +197,8 @@ function frontpageHeader($wpCustomize)
     $wpCustomize->add_control(
         'first_button_text',
         [
-            'label'             => __('First button text', 'sim'),
-            'section'           => 'sim_header',
+            'label'             => __('First button text', 'tsjippy'),
+            'section'           => 'tsjippy_header',
             'settings'          => 'first_button_text',
             'priority'          => 11
         ]
@@ -211,8 +211,8 @@ function frontpageHeader($wpCustomize)
     $wpCustomize->add_control(
         'second_button_page',
         [
-            'label'             => __('Second button page', 'sim'),
-            'section'           => 'sim_header',
+            'label'             => __('Second button page', 'tsjippy'),
+            'section'           => 'tsjippy_header',
             'settings'          => 'second_button_page',
             'priority'          => 15,
             'type'                => 'dropdown-pages'
@@ -230,8 +230,8 @@ function frontpageHeader($wpCustomize)
     $wpCustomize->add_control(
         'second_button_text',
         [
-            'label'             => __('Second button text', 'sim'),
-            'section'           => 'sim_header',
+            'label'             => __('Second button text', 'tsjippy'),
+            'section'           => 'tsjippy_header',
             'settings'          => 'second_button_text',
             'priority'          => 16
 
@@ -253,12 +253,12 @@ function frontpageNewsGallery($wpCustomize)
     }
 
     $wpCustomize->add_section(
-        'sim_news_gallery',
+        'tsjippy_news_gallery',
         array(
-            'title'         => __('News Gallery', 'sim'),
+            'title'         => __('News Gallery', 'tsjippy'),
             'priority'      => 10,
-            'panel'         => 'sim_frontpage_panel',
-            'description'     => __('Show a gallery of the lastest posted content', 'sim'),
+            'panel'         => 'tsjippy_frontpage_panel',
+            'description'     => __('Show a gallery of the lastest posted content', 'tsjippy'),
         )
     );
 
@@ -271,7 +271,7 @@ function frontpageNewsGallery($wpCustomize)
         [
             'type'            => 'checkbox',
             'label'         => 'Do not show the news gallery',
-            'section'       => 'sim_news_gallery',
+            'section'       => 'tsjippy_news_gallery',
             'settings'      => "hide_news_gallery",
             'priority'      => 11
         ]
@@ -286,7 +286,7 @@ function frontpageNewsGallery($wpCustomize)
         [
             'type'            => 'checkbox',
             'label'         => 'Do not show the news gallery if there is no news',
-            'section'       => 'sim_news_gallery',
+            'section'       => 'tsjippy_news_gallery',
             'settings'      => "hide_news_gallery_if_empty",
             'priority'      => 11
         ]
@@ -301,7 +301,7 @@ function frontpageNewsGallery($wpCustomize)
         [
             'type'            => 'checkbox',
             'label'         => 'Do not show the news gallery if the user is not logged in',
-            'section'       => 'sim_news_gallery',
+            'section'       => 'tsjippy_news_gallery',
             'settings'      => "hide_news_gallery_if_not_logged_in",
             'priority'      => 11
         ]
@@ -318,11 +318,11 @@ function frontpageNewsGallery($wpCustomize)
         "priority[news]",
         [
             'type'            => 'number',
-            'label'         => __('The priority of this gallery', 'sim'),
-            'section'       => 'sim_news_gallery',
+            'label'         => __('The priority of this gallery', 'tsjippy'),
+            'section'       => 'tsjippy_news_gallery',
             'settings'      => "priority[news]",
             'priority'      => 12,
-            'description'   => __('A lower number means that it is shown higher on the page', 'sim'),
+            'description'   => __('A lower number means that it is shown higher on the page', 'tsjippy'),
             'active_callback' => function () {
                 return !get_theme_mod("hide_news_gallery", false);
             },
@@ -337,8 +337,8 @@ function frontpageNewsGallery($wpCustomize)
         "max_news_age",
         [
             'type'            => 'select',
-            'label'         => __('Max news age of news items.', 'sim'),
-            'section'       => 'sim_news_gallery',
+            'label'         => __('Max news age of news items.', 'tsjippy'),
+            'section'       => 'tsjippy_news_gallery',
             'settings'      => "max_news_age",
             'priority'      => 20,
             'choices'       => [
@@ -365,7 +365,7 @@ function frontpageNewsGallery($wpCustomize)
             "news-posttypes-label",
             array(
                 'label'         => 'Select the post types you want want to include in the news gallery',
-                'section'       => 'sim_news_gallery',
+                'section'       => 'tsjippy_news_gallery',
                 'priority'      => 20,
                 'settings'      => "label",
                 'active_callback' => function () {
@@ -394,7 +394,7 @@ function frontpageNewsGallery($wpCustomize)
             [
                 'type'                => 'checkbox',
                 'label'             => ucfirst($type) . 's',
-                'section'           => 'sim_news_gallery',
+                'section'           => 'tsjippy_news_gallery',
                 'settings'          => "news_posttypes[$type]",
                 'priority'          => 20,
                 'active_callback' => function () {
@@ -426,10 +426,10 @@ function frontpageNewsGallery($wpCustomize)
                     "news_labels[$type][$taxonomy]-label",
                     array(
                         'label'         => ucfirst($type) . ' - ' . ucfirst(str_replace('_', ' ', $taxonomy)) . ":",
-                        'section'       => 'sim_news_gallery',
+                        'section'       => 'tsjippy_news_gallery',
                         'priority'      => $basePriority + ($index * 10) + $taxIndex,
                         'settings'      => "label",
-                        'description'     => __("Select the categories you want to exclude from the gallery", 'sim'),
+                        'description'     => __("Select the categories you want to exclude from the gallery", 'tsjippy'),
                         'active_callback' => function () use ($type) {
                             return get_theme_mod("news_posttypes", [])[$type] && !get_theme_mod("hide_news_gallery", false);
                         },
@@ -447,7 +447,7 @@ function frontpageNewsGallery($wpCustomize)
                     [
                         'type'                => 'checkbox',
                         'label'             => $category->name,
-                        'section'           => 'sim_news_gallery',
+                        'section'           => 'tsjippy_news_gallery',
                         'settings'          => "news_categories[$type][$taxonomy][$category->term_id]",
                         'priority'          => $basePriority + ($index * 10) + $taxIndex,
                         'active_callback' => function () use ($type) {
@@ -474,12 +474,12 @@ function frontpagePageGallery($wpCustomize)
     }
 
     $wpCustomize->add_section(
-        'sim_page_gallery',
+        'tsjippy_page_gallery',
         array(
-            'title'         => __('Page Gallery', 'sim'),
+            'title'         => __('Page Gallery', 'tsjippy'),
             'priority'      => 30,
-            'panel'         => 'sim_frontpage_panel',
-            'description'     => __('Choose which post types you would like to include in the gallery', 'sim'),
+            'panel'         => 'tsjippy_frontpage_panel',
+            'description'     => __('Choose which post types you would like to include in the gallery', 'tsjippy'),
         )
     );
 
@@ -491,8 +491,8 @@ function frontpagePageGallery($wpCustomize)
         "hide_page_gallery",
         [
             'type'            => 'checkbox',
-            'label'         => __('Do not show the page gallery.', 'sim'),
-            'section'       => 'sim_page_gallery',
+            'label'         => __('Do not show the page gallery.', 'tsjippy'),
+            'section'       => 'tsjippy_page_gallery',
             'settings'      => "hide_page_gallery",
             'priority'      => 10
         ]
@@ -507,7 +507,7 @@ function frontpagePageGallery($wpCustomize)
         [
             'type'            => 'checkbox',
             'label'         => 'Do not show the page gallery if there are not pages to show',
-            'section'       => 'sim_page_gallery',
+            'section'       => 'tsjippy_page_gallery',
             'settings'      => "hide_page_gallery_if_empty",
             'priority'      => 11
         ]
@@ -522,7 +522,7 @@ function frontpagePageGallery($wpCustomize)
         [
             'type'            => 'checkbox',
             'label'         => 'Do not show the page gallery if the user is not logged in',
-            'section'       => 'sim_page_gallery',
+            'section'       => 'tsjippy_page_gallery',
             'settings'      => "hide_page_gallery_if_not_logged_in",
             'priority'      => 11
         ]
@@ -539,11 +539,11 @@ function frontpagePageGallery($wpCustomize)
         "priority[page]",
         [
             'type'            => 'number',
-            'label'         => __('The priority of this gallery', 'sim'),
-            'section'       => 'sim_page_gallery',
+            'label'         => __('The priority of this gallery', 'tsjippy'),
+            'section'       => 'tsjippy_page_gallery',
             'settings'      => "priority[page]",
             'priority'      => 15,
-            'description'   => __('A lower number means higher on the page', 'sim'),
+            'description'   => __('A lower number means higher on the page', 'tsjippy'),
             'active_callback' => function () {
                 return !get_theme_mod("hide_page_gallery", false);
             },
@@ -553,7 +553,7 @@ function frontpagePageGallery($wpCustomize)
     $wpCustomize->add_setting(
         "page-gallery-title",
         [
-            'default'           => __('See what we do', 'sim')
+            'default'           => __('See what we do', 'tsjippy')
         ]
     );
 
@@ -561,8 +561,8 @@ function frontpagePageGallery($wpCustomize)
         "page-gallery-title",
         [
             'type'            => 'text',
-            'label'         => __('Title for the gallery', 'sim'),
-            'section'       => 'sim_page_gallery',
+            'label'         => __('Title for the gallery', 'tsjippy'),
+            'section'       => 'tsjippy_page_gallery',
             'settings'      => "page-gallery-title",
             'priority'      => 15,
             'active_callback' => function () {
@@ -583,8 +583,8 @@ function frontpagePageGallery($wpCustomize)
         "page-gallery-count",
         [
             'type'            => 'number',
-            'label'         => __('Amount of pages to show', 'sim'),
-            'section'       => 'sim_page_gallery',
+            'label'         => __('Amount of pages to show', 'tsjippy'),
+            'section'       => 'tsjippy_page_gallery',
             'settings'      => "page-gallery-count",
             'priority'      => 15,
             'active_callback' => function () {
@@ -605,8 +605,8 @@ function frontpagePageGallery($wpCustomize)
         "speed",
         [
             'type'            => 'number',
-            'label'         => __('Refreshrate of the pages in seconds', 'sim'),
-            'section'       => 'sim_page_gallery',
+            'label'         => __('Refreshrate of the pages in seconds', 'tsjippy'),
+            'section'       => 'tsjippy_page_gallery',
             'settings'      => "speed",
             'priority'      => 15,
             'active_callback' => function () {
@@ -621,7 +621,7 @@ function frontpagePageGallery($wpCustomize)
             "page-posttypes-label",
             array(
                 'label'         => 'Select the post types you want want to include in the page gallery',
-                'section'       => 'sim_page_gallery',
+                'section'       => 'tsjippy_page_gallery',
                 'priority'      => 20,
                 'settings'      => "label",
                 'active_callback' => function () {
@@ -648,7 +648,7 @@ function frontpagePageGallery($wpCustomize)
             [
                 'type'                => 'checkbox',
                 'label'             => ucfirst($type) . 's',
-                'section'           => 'sim_page_gallery',
+                'section'           => 'tsjippy_page_gallery',
                 'settings'          => "page_posttypes[$type]",
                 'priority'          => 20,
                 'active_callback' => function () {
@@ -679,10 +679,10 @@ function frontpagePageGallery($wpCustomize)
                     "page_labels[$type][$taxonomy]-label",
                     array(
                         'label'         => ucfirst($type) . ' - ' . ucfirst(str_replace('_', ' ', $taxonomy)) . ":",
-                        'section'       => 'sim_page_gallery',
+                        'section'       => 'tsjippy_page_gallery',
                         'priority'      => $basePriority + ($index * 10) + $taxIndex,
                         'settings'      => "label",
-                        'description'     => __("Select the categories you want to exclude from the gallery", 'sim'),
+                        'description'     => __("Select the categories you want to exclude from the gallery", 'tsjippy'),
                         'active_callback' => function () use ($type) {
                             return get_theme_mod("page_posttypes", [])[$type] && !get_theme_mod("hide_page_gallery", false);
                         },
@@ -700,7 +700,7 @@ function frontpagePageGallery($wpCustomize)
                     [
                         'type'                => 'checkbox',
                         'label'             => $category->name,
-                        'section'           => 'sim_page_gallery',
+                        'section'           => 'tsjippy_page_gallery',
                         'settings'          => "page_categories[$type][$taxonomy][$category->term_id]",
                         'priority'          => $basePriority + ($index * 10) + $taxIndex,
                         'active_callback' => function () use ($type) {
