@@ -5,6 +5,7 @@
 ### Added
 
 ### Changed
+- replaced all references to sim with tsjippy
 
 ### Fixed
 
