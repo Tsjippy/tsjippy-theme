@@ -7,6 +7,7 @@
 ### Changed
 
 ### Fixed
+- site url bug
 
 ### Updated
 
