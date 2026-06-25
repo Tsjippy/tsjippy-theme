@@ -7,6 +7,7 @@
 
 ### Changed
 - filter name
+- removed tsjippy dependencies
 
 ### Fixed
 
