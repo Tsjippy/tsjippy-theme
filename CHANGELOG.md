@@ -3,6 +3,7 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+- use of get_stylesheet_directory_uri
 
 ### Changed
 - filter name
