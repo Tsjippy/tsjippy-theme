@@ -5,11 +5,16 @@
 ### Added
 
 ### Changed
-- replaced all references to sim with tsjippy
 
 ### Fixed
 
 ### Updated
+
+## [3.1.1] - 2026-06-25
+
+
+### Changed
+- replaced all references to sim with tsjippy
 
 ## [3.1.0] - 2026-06-25
 
