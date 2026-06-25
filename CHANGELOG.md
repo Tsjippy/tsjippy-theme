@@ -7,9 +7,14 @@
 ### Changed
 
 ### Fixed
-- namespace issues
 
 ### Updated
+
+## [3.1.2] - 2026-06-25
+
+
+### Fixed
+- namespace issues
 
 ## [3.1.1] - 2026-06-25
 
