@@ -2,10 +2,6 @@
 
 namespace TSJIPPYTHEME;
 
-use TSJIPPY;
-
-// depends on the tsjippy-shared-functionality plugin
-
 function showGalleries()
 {
     // check the order of the page and news gallery
@@ -89,14 +85,12 @@ function showGalleries()
                 }
             }
 
-            $title        = get_theme_mod('page-gallery-title', 'See what we do');
-            $amount        = get_theme_mod('page-gallery-count', 3);
-            $speed        = get_theme_mod('speed', 60);
+            $title       = get_theme_mod('page-gallery-title', 'See what we do');
+            $amount      = get_theme_mod('page-gallery-count', 3);
+            $speed       = get_theme_mod('speed', 60);
             $showIfEmpty = get_theme_mod('hide_page_gallery_if_empty', false);
 
-            if (function_exists('TSJIPPY\PAGEGALLERY\pageGallery')) {
-                echo TSJIPPY\PAGEGALLERY\pageGallery($title, $postTypes, $amount, $includedCategories, $speed, $showIfEmpty);
-            }
+            do_action('tsjippy-theme-after-news-gallery', $title, $postTypes, $amount, $includedCategories, $speed, $showIfEmpty);
         }
     }
     echo "</div>";

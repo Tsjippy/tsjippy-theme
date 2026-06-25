@@ -115,7 +115,7 @@ function addDarkThemeLogo($html, $logoUrl, $htmlAttr)
     $ext            = pathinfo($logoUrl, PATHINFO_EXTENSION);
     $darkModeUrl    = str_replace(".$ext", "_DM.$ext", $logoUrl);
 
-    if (!file_exists(TSJIPPY\urlToPath($darkModeUrl))) {
+    if (!file_exists(urlToPath($darkModeUrl))) {
         return $html;
     }
 

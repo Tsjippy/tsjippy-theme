@@ -34,12 +34,6 @@ add_filter('protected_title_format', function () {
 
 //Add a title section below the menu
 add_action('generate_after_header', function () {
-
-	// TO DO use filter
-	if (function_exists('TSJIPPY\CONTENTFILTER\isProtected') && TSJIPPY\CONTENTFILTER\isProtected()) {
-		return '';
-	}
-
 	global $post;
 	if ($post) {
 		$title = $post->post_title;
@@ -67,11 +61,19 @@ add_action('generate_after_header', function () {
 			!is_archive()			&&
 			get_post_type() != 'recipe'
 		) {
-			echo '<div id="page-title-image" style="background-image: url(' . get_the_post_thumbnail_url() . ');"></div>';
+			?>
+			<div id="page-title-image" style="background-image: url(' <?php echo esc_url(get_the_post_thumbnail_url());?> ');">
+
+			</div>
+			<?php
 		}
 		//Add the title
-		echo '<div id="page-title-div">';
-		echo "<h2 id='page-title'>$title</h2>";
-		echo '</div>';
+		?>
+		<div id="page-title-div">
+			<h2 id='page-title'>
+				<?php echo esc_html($title);?>
+			</h2>
+		</div>
+		<?php
 	}
 });
