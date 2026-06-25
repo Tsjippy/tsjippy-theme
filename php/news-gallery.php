@@ -141,6 +141,7 @@ function showNewsGallery()
             <div class="row">
                 <?php
                 while ($loop->have_posts()) {
+                    wp_link_pages();
                     $loop->the_post();
 
                 ?>

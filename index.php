@@ -37,3 +37,6 @@ function urlToPath($url)
 
     return str_replace(trailingslashit($siteUrl), str_replace('\\', '/', ABSPATH), $url);
 }
+
+// required functions
+add_theme_support( 'title-tag' );

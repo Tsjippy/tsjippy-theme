@@ -72,7 +72,7 @@ function topNavigation($wpCustomize)
     $wpCustomize->add_section(
         'tsjippy_layout_top_navigation',
         array(
-            'title' => __('Top Navigation', 'generatepress'),
+            'title' => __('Top Navigation', 'tsjippy'),
             'priority' => 29,
             'panel' => 'generate_layout_panel',
         )
@@ -92,9 +92,9 @@ function topNavigation($wpCustomize)
             'label'   => __('Top Navigation Alignment', 'tsjippy'),
             'section' => 'tsjippy_layout_top_navigation',
             'choices' => array(
-                'left'   => __('Left', 'generatepress'),
-                'center' => __('Center', 'generatepress'),
-                'right'  => __('Right', 'generatepress'),
+                'left'   => __('Left', 'tsjippy'),
+                'center' => __('Center', 'tsjippy'),
+                'right'  => __('Right', 'tsjippy'),
             ),
             'settings' => 'top_nav_alignment_setting',
             'priority' => 20,

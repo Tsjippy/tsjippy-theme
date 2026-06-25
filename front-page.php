@@ -43,6 +43,8 @@ get_header('frontpage'); ?>
 		if (generate_has_default_loop()) {
 			while (have_posts()) :
 
+				wp_link_pages();
+
 				the_post();
 
 				generate_do_template_part('page');
