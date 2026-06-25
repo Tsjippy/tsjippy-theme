@@ -5,11 +5,13 @@
 ### Added
 
 ### Changed
-- readme update
 
 ### Fixed
 
 ### Updated
+
+## [3.1.3] - 2026-06-25
+
 
 ## [3.1.2] - 2026-06-25
 
