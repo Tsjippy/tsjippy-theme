@@ -3,15 +3,22 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+
+### Changed
+
+### Fixed
+
+### Updated
+
+## [3.1.0] - 2026-06-25
+
+
+### Added
 - use of get_stylesheet_directory_uri
 
 ### Changed
 - filter name
 - removed tsjippy dependencies
-
-### Fixed
-
-### Updated
 
 ## [3.0.9] - 2026-06-23
 
