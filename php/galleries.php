@@ -16,7 +16,9 @@ function showGalleries()
     // Sort according to the value
     asort($priorities);
 
-    echo "<div id='gallery-wrapper'>";
+    ?>
+    <div id='gallery-wrapper'>
+        <?php
     foreach ($priorities as $what => $priority) {
         if ($what == 'news') {
             // Do not show if we should hide it
@@ -93,7 +95,9 @@ function showGalleries()
             do_action('tsjippy-theme-after-news-gallery', $title, $postTypes, $amount, $includedCategories, $speed, $showIfEmpty);
         }
     }
-    echo "</div>";
+    ?>
+    </div>
+    <?php
 
     // add js to make sure the galleries are using the full available screen width
 ?>

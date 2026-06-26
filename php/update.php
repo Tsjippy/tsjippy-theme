@@ -61,9 +61,9 @@ add_action('admin_menu', function () {
 			$url  		= wp_nonce_url(admin_url('update.php?action=upgrade-theme&amp;theme=' . urlencode('tsjippy-theme')), 'upgrade-theme_tsjippy-theme');
 
 			$link   = "<a href='$url' class='update-link'>Update to {$release['tag_name']}</a>";
-			echo "Checking for update<br>Current version $theme->version<br>Remote version {$release['tag_name']}<br>$link";
+ 			echo "Checking for update<br>Current version $theme->version<br>Remote version {$release['tag_name']}<br>$link";
 		} else {
-			echo "Checking for update<br>No update available";
+ 			echo "Checking for update<br>No update available";
 		}
 	});
 });

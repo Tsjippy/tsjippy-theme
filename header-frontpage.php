@@ -7,7 +7,7 @@ namespace TSJIPPYTHEME;
  */
 
 if (! defined('ABSPATH')) {
-	echo 'Are you trying to hack me?';
+ 	echo 'Are you trying to hack me?';
 	exit; // Exit if accessed directly.
 }
 
@@ -69,8 +69,8 @@ if (! defined('ABSPATH')) {
 	$headerImageHeight	= get_theme_mod('header_image_height', 600);
 
 	?>
-	<div id='main-image' style='height:<?php echo $headerImageHeight; ?>px;min-height:<?php echo $headerImageHeight; ?>px;'>
-		<div class='image' style='background-image: url(<?php echo $headerImageUrl; ?>);'>
+	<div id='main-image' style='height:<?php echo esc_attr($headerImageHeight); ?>px;min-height:<?php echo esc_attr($headerImageHeight); ?>px));'>
+		<div class='image' style='background-image: url(<?php echo esc_attr($headerImageUrl); ?>));'>
 		</div>
 		<?php
 		if ($page1 > 0  || $page2 > 0) {
@@ -81,12 +81,12 @@ if (! defined('ABSPATH')) {
 				<?php
 				if ($page1 > 0) {
 				?>
-					<a id='first_button' href='<?php echo $url1; ?>' title='<?php echo $text1; ?>' class='btn btn-primary header_button' id='header_button1'><?php echo $text1; ?></a>
+					<a id='first_button' href='<?php echo esc_attr($url1); ?>' title='<?php echo esc_attr($text1); ?>' class='btn btn-primary header_button' id='header_button1'><?php echo esc_attr($text1); ?></a>
 				<?php
 				}
 				if ($page2 > 0) {
 				?>
-					<a id='second_button' href='<?php echo $url2; ?>' title='<?php echo $text2; ?>' class='btn btn-right header_button' id='header_button1'><?php echo $text2; ?></a>
+					<a id='second_button' href='<?php echo esc_attr($url2); ?>' title='<?php echo esc_attr($text2); ?>' class='btn btn-right header_button' id='header_button1'><?php echo esc_attr($text2); ?></a>
 				<?php
 				}
 				?>

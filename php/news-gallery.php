@@ -150,7 +150,9 @@ function showNewsGallery()
                             <div class="card-image">
                                 <?php
                                 if (has_post_thumbnail()) {
-                                    echo '<a href="' . get_permalink() . '" style="background-image: url(' . get_the_post_thumbnail_url() . ');"></a>';
+                                    ?>
+                                    <a href=" <?php echo esc_url(get_permalink());?>" style="background-image: url( <?php esc_url( get_the_post_thumbnail_url() ); ?> ');"></a>';
+                                    <?php
                                 }
                                 ?>
                             </div>
