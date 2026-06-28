@@ -76,9 +76,9 @@ function showGalleries()
 
                     foreach ($categories as $category) {
                         if (
-                            !in_array($type, array_keys($excludedCategories))    ||
-                            !in_array($taxonomy, array_keys($excludedCategories[$type]))    ||
-                            !in_array($category->term_id, array_keys($excludedCategories[$type][$taxonomy]))    ||
+                            !isset($excludedCategories[$type])    ||
+                            !isset($excludedCategories[$type][$taxonomy])    ||
+                            !isset($excludedCategories[$type][$taxonomy][$category->term_id])    ||
                             !$excludedCategories[$type][$taxonomy][$category->term_id]
                         ) {
                             $includedCategories[$type][$taxonomy][]    = $category->term_id;
