@@ -10,6 +10,7 @@
 
 ### Fixed
 - site url bug
+- missing echo call
 
 ### Updated
 
