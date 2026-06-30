@@ -151,7 +151,7 @@ function showNewsGallery()
                                 <?php
                                 if (has_post_thumbnail()) {
                                     ?>
-                                    <a href=" <?php echo esc_url(get_permalink());?>" style="background-image: url( <?php esc_url( get_the_post_thumbnail_url() ); ?> ');"></a>';
+                                    <a href=" <?php echo esc_url(get_permalink());?>" style="background-image: url( <?php echo esc_url( get_the_post_thumbnail_url() ); ?> ');"></a>';
                                     <?php
                                 }
                                 ?>

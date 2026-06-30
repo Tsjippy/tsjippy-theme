@@ -54,7 +54,7 @@ add_action('generate_before_header', function () {
                             ?>
                             <div id='top-menu' class='top-nav'>
                                 Please add a menu 
-                                <a href='<?php esc_url($url);?>'>
+                                <a href='<?php echo esc_url($url);?>'>
                                     here
                                 </a>
                             </div>
