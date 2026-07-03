@@ -3,6 +3,17 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+
+### Changed
+
+### Fixed
+
+### Updated
+
+## [3.1.4] - 2026-07-03
+
+
+### Added
 - attribute escaping
 
 ### Changed
@@ -11,8 +22,6 @@
 ### Fixed
 - site url bug
 - missing echo call
-
-### Updated
 
 ## [3.1.2] - 2026-06-25
 
