@@ -39,7 +39,7 @@ if (! function_exists('tsjippyCustomizeRegister')) {
     /**
      * Add our base options to the Customizer.
      *
-     * @param WP_Customize_Manager $wpCustomize Theme Customizer object.
+     * @param \WP_Customize_Manager $wpCustomize Theme Customizer object.
      */
     function tsjippyCustomizeRegister($wpCustomize)
     {
@@ -58,6 +58,7 @@ if (! function_exists('tsjippyCustomizeRegister')) {
 
         frontpageNewsGallery($wpCustomize);
 
+        // TO DO
         if (function_exists('SIM\getModuleOption') && \SIM\getModuleOption('pagegallery', 'enable')) {
             frontpagePageGallery($wpCustomize);
         }
