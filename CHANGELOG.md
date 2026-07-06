@@ -5,6 +5,7 @@
 ### Added
 
 ### Changed
+- indicator class
 
 ### Fixed
 
