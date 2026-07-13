@@ -7,6 +7,7 @@
 ### Changed
 
 ### Fixed
+- z-index of sidebar
 
 ### Updated
 
