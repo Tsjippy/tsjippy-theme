@@ -5,12 +5,17 @@
 ### Added
 
 ### Changed
-- indicator class
-- removed galleries
 
 ### Fixed
 
 ### Updated
+
+## [3.1.5] - 2026-07-13
+
+
+### Changed
+- indicator class
+- removed galleries
 
 ## [3.1.4] - 2026-07-03
 
