@@ -6,6 +6,7 @@
 
 ### Changed
 - indicator class
+- removed galleries
 
 ### Fixed
 
