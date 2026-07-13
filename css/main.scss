@@ -125,3 +125,8 @@ a.button.small {
 input[type="checkbox"] {
   accent-color: $secundaryColor;
 }
+
+/* Put the side bar underneath other elements if they exist */
+.sidebar{
+	z-index: -1;
+}
