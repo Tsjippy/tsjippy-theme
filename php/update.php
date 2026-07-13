@@ -20,7 +20,7 @@ add_filter('themes_api', function ($res, $action, $args) {
 	}
 
 	$github					= new TSJIPPY\GITHUB\Github();
-	return $github->pluginData(THEME_PATH, 'Tsjippy', 'tsjippy-theme', [
+	return $github->pluginData(THEME_PATH, '%TEXTDOMAIN%', 'tsjippy-theme', [
 		'active_installs'	=> 2,
 		'donate_link'		=> 'harmseninnigeria.nl',
 		'rating'			=> 5,
@@ -39,7 +39,7 @@ add_filter('pre_set_site_transient_update_themes', function ($transient) {
 	}
 	$github			= new TSJIPPY\GITHUB\Github();
 
-	$item			= $github->getVersionInfo(THEME_PATH, 'Tsjippy', 'tsjippy-theme');
+	$item			= $github->getVersionInfo(THEME_PATH, '%TEXTDOMAIN%', 'tsjippy-theme');
 
 	// Git has a newer version
 	if (isset($item->new_version)) {
@@ -54,7 +54,7 @@ add_filter('pre_set_site_transient_update_themes', function ($transient) {
 add_action('admin_menu', function () {
 	add_submenu_page('themes.php', 'Update', 'Update', 'edit_theme_options', 'update', function ($test) {
 		$github		= new TSJIPPY\GITHUB\Github();
-		$release	= $github->getLatestRelease('tsjippy', 'tsjippy-theme', true);
+		$release	= $github->getLatestRelease('%TEXTDOMAIN%', 'tsjippy-theme', true);
 		$theme		= wp_get_theme('tsjippy-theme');
 
 		if (version_compare($release['tag_name'], $theme->version)) {

@@ -47,7 +47,7 @@ if (! function_exists('tsjippyCustomizeRegister')) {
         $wpCustomize->add_panel(
             'tsjippy_frontpage_panel',
             array(
-                'title' => __('Home page', 'tsjippy'),
+                'title' => __('Home page', '%TEXTDOMAIN%'),
                 'priority'     => 20,
             )
         );
@@ -55,13 +55,6 @@ if (! function_exists('tsjippyCustomizeRegister')) {
         topNavigation($wpCustomize);
 
         frontpageHeader($wpCustomize);
-
-        frontpageNewsGallery($wpCustomize);
-
-        // TO DO
-        if (function_exists('SIM\getModuleOption') && \SIM\getModuleOption('pagegallery', 'enable')) {
-            frontpagePageGallery($wpCustomize);
-        }
     }
 }
 
@@ -73,7 +66,7 @@ function topNavigation($wpCustomize)
     $wpCustomize->add_section(
         'tsjippy_layout_top_navigation',
         array(
-            'title' => __('Top Navigation', 'tsjippy'),
+            'title' => __('Top Navigation', '%TEXTDOMAIN%'),
             'priority' => 29,
             'panel' => 'generate_layout_panel',
         )
@@ -90,12 +83,12 @@ function topNavigation($wpCustomize)
         'top_nav_alignment_setting',
         array(
             'type'    => 'select',
-            'label'   => __('Top Navigation Alignment', 'tsjippy'),
+            'label'   => __('Top Navigation Alignment', '%TEXTDOMAIN%'),
             'section' => 'tsjippy_layout_top_navigation',
             'choices' => array(
-                'left'   => __('Left', 'tsjippy'),
-                'center' => __('Center', 'tsjippy'),
-                'right'  => __('Right', 'tsjippy'),
+                'left'   => __('Left', '%TEXTDOMAIN%'),
+                'center' => __('Center', '%TEXTDOMAIN%'),
+                'right'  => __('Right', '%TEXTDOMAIN%'),
             ),
             'settings' => 'top_nav_alignment_setting',
             'priority' => 20,
@@ -111,7 +104,7 @@ function frontpageHeader($wpCustomize)
     $wpCustomize->add_section(
         'tsjippy_header',
         array(
-            'title' => __('Header image and buttons', 'tsjippy'),
+            'title' => __('Header image and buttons', '%TEXTDOMAIN%'),
             'priority' => 10,
             'panel' => 'tsjippy_frontpage_panel',
         )
@@ -128,7 +121,7 @@ function frontpageHeader($wpCustomize)
         "header_image_height",
         [
             'type'            => 'number',
-            'label'         => __('The height of the images in pixels', 'tsjippy'),
+            'label'         => __('The height of the images in pixels', '%TEXTDOMAIN%'),
             'section'       => 'tsjippy_header',
             'settings'      => "header_image_height",
             'priority'      => 6
@@ -140,7 +133,7 @@ function frontpageHeader($wpCustomize)
     );
 
     $headerImageOptions = [
-        'label'             => __('Frontpage Header Image', 'tsjippy'),
+        'label'             => __('Frontpage Header Image', '%TEXTDOMAIN%'),
         'section'           => 'tsjippy_header',
         'settings'          => 'header_image',
         'priority'          => 5,
@@ -179,7 +172,7 @@ function frontpageHeader($wpCustomize)
     $wpCustomize->add_control(
         'first_button_page',
         [
-            'label'             => __('First button page', 'tsjippy'),
+            'label'             => __('First button page', '%TEXTDOMAIN%'),
             'section'           => 'tsjippy_header',
             'settings'          => 'first_button_page',
             'priority'          => 10,
@@ -198,7 +191,7 @@ function frontpageHeader($wpCustomize)
     $wpCustomize->add_control(
         'first_button_text',
         [
-            'label'             => __('First button text', 'tsjippy'),
+            'label'             => __('First button text', '%TEXTDOMAIN%'),
             'section'           => 'tsjippy_header',
             'settings'          => 'first_button_text',
             'priority'          => 11
@@ -212,7 +205,7 @@ function frontpageHeader($wpCustomize)
     $wpCustomize->add_control(
         'second_button_page',
         [
-            'label'             => __('Second button page', 'tsjippy'),
+            'label'             => __('Second button page', '%TEXTDOMAIN%'),
             'section'           => 'tsjippy_header',
             'settings'          => 'second_button_page',
             'priority'          => 15,
@@ -231,485 +224,11 @@ function frontpageHeader($wpCustomize)
     $wpCustomize->add_control(
         'second_button_text',
         [
-            'label'             => __('Second button text', 'tsjippy'),
+            'label'             => __('Second button text', '%TEXTDOMAIN%'),
             'section'           => 'tsjippy_header',
             'settings'          => 'second_button_text',
             'priority'          => 16
 
         ]
     );
-}
-
-/**
- * The options for the frontpage News Gallery
- */
-function frontpageNewsGallery($wpCustomize)
-{
-    $postTypes = get_post_types(array(
-        'public'   => true
-    ), 'object');
-
-    if (empty($postTypes)) {
-        return;
-    }
-
-    $wpCustomize->add_section(
-        'tsjippy_news_gallery',
-        array(
-            'title'         => __('News Gallery', 'tsjippy'),
-            'priority'      => 10,
-            'panel'         => 'tsjippy_frontpage_panel',
-            'description'     => __('Show a gallery of the lastest posted content', 'tsjippy'),
-        )
-    );
-
-    $wpCustomize->add_setting(
-        "hide_news_gallery"
-    );
-
-    $wpCustomize->add_control(
-        "hide_news_gallery",
-        [
-            'type'            => 'checkbox',
-            'label'         => 'Do not show the news gallery',
-            'section'       => 'tsjippy_news_gallery',
-            'settings'      => "hide_news_gallery",
-            'priority'      => 11
-        ]
-    );
-
-    $wpCustomize->add_setting(
-        "hide_news_gallery_if_empty"
-    );
-
-    $wpCustomize->add_control(
-        "hide_news_gallery_if_empty",
-        [
-            'type'            => 'checkbox',
-            'label'         => 'Do not show the news gallery if there is no news',
-            'section'       => 'tsjippy_news_gallery',
-            'settings'      => "hide_news_gallery_if_empty",
-            'priority'      => 11
-        ]
-    );
-
-    $wpCustomize->add_setting(
-        "hide_news_gallery_if_not_logged_in"
-    );
-
-    $wpCustomize->add_control(
-        "hide_news_gallery_if_not_logged_in",
-        [
-            'type'            => 'checkbox',
-            'label'         => 'Do not show the news gallery if the user is not logged in',
-            'section'       => 'tsjippy_news_gallery',
-            'settings'      => "hide_news_gallery_if_not_logged_in",
-            'priority'      => 11
-        ]
-    );
-
-    $wpCustomize->add_setting(
-        "priority[news]",
-        [
-            'default'   => 10
-        ]
-    );
-
-    $wpCustomize->add_control(
-        "priority[news]",
-        [
-            'type'            => 'number',
-            'label'         => __('The priority of this gallery', 'tsjippy'),
-            'section'       => 'tsjippy_news_gallery',
-            'settings'      => "priority[news]",
-            'priority'      => 12,
-            'description'   => __('A lower number means that it is shown higher on the page', 'tsjippy'),
-            'active_callback' => function () {
-                return !get_theme_mod("hide_news_gallery", false);
-            },
-        ]
-    );
-
-    $wpCustomize->add_setting(
-        "max_news_age"
-    );
-
-    $wpCustomize->add_control(
-        "max_news_age",
-        [
-            'type'            => 'select',
-            'label'         => __('Max news age of news items.', 'tsjippy'),
-            'section'       => 'tsjippy_news_gallery',
-            'settings'      => "max_news_age",
-            'priority'      => 20,
-            'choices'       => [
-                '1 day'   => '1 day',
-                '1 week'  => '1 week',
-                '2 weeks' => '2 weeks',
-                '1 month' => '1 month',
-                '2 months' => '2 months',
-                '3 months' => '3 months',
-            ],
-            'active_callback' => function () {
-                return !get_theme_mod("hide_news_gallery", false);
-            },
-        ]
-    );
-
-    $wpCustomize->add_setting(
-        'label'
-    );
-
-    $wpCustomize->add_control(
-        new WP_Customize_Label_Control(
-            $wpCustomize,
-            "news-posttypes-label",
-            array(
-                'label'         => 'Select the post types you want want to include in the news gallery',
-                'section'       => 'tsjippy_news_gallery',
-                'priority'      => 20,
-                'settings'      => "label",
-                'active_callback' => function () {
-                    return !get_theme_mod("hide_news_gallery", false);
-                },
-            )
-        )
-    );
-
-    // loop over post types.
-    $basePriority   = 30;
-    foreach (array_keys($postTypes) as $index => $type) {
-        if ($type == 'attachment') {
-            continue;
-        }
-
-        $wpCustomize->add_setting(
-            "news_posttypes[$type]",
-            [
-                'transport'         => 'postMessage'
-            ]
-        );
-
-        $wpCustomize->add_control(
-            "news_posttypes[$type]",
-            [
-                'type'                => 'checkbox',
-                'label'             => ucfirst($type) . 's',
-                'section'           => 'tsjippy_news_gallery',
-                'settings'          => "news_posttypes[$type]",
-                'priority'          => 20,
-                'active_callback' => function () {
-                    return !get_theme_mod("hide_news_gallery", false);
-                },
-
-            ]
-        );
-
-        $taxonomies     = get_object_taxonomies($type);
-        foreach ($taxonomies as $taxIndex => $taxonomy) {
-            if ($taxonomy == 'post_tag') {
-                continue;
-            }
-
-            // create a list of sub-categories
-            $categories    = get_categories(array(
-                'taxonomy'        => $taxonomy,
-                'hide_empty'     => false,
-            ));
-
-            if (empty($categories)) {
-                continue;
-            }
-
-            $wpCustomize->add_control(
-                new WP_Customize_Label_Control(
-                    $wpCustomize,
-                    "news_labels[$type][$taxonomy]-label",
-                    array(
-                        'label'         => ucfirst($type) . ' - ' . ucfirst(str_replace('_', ' ', $taxonomy)) . ":",
-                        'section'       => 'tsjippy_news_gallery',
-                        'priority'      => $basePriority + ($index * 10) + $taxIndex,
-                        'settings'      => "label",
-                        'description'     => __("Select the categories you want to exclude from the gallery", 'tsjippy'),
-                        'active_callback' => function () use ($type) {
-                            return get_theme_mod("news_posttypes", [])[$type] && !get_theme_mod("hide_news_gallery", false);
-                        },
-                    )
-                )
-            );
-
-            foreach ($categories as $category) {
-                $wpCustomize->add_setting(
-                    "news_categories[$type][$taxonomy][$category->term_id]"
-                );
-
-                $wpCustomize->add_control(
-                    "news_categories[$type][$taxonomy][$category->term_id]",
-                    [
-                        'type'                => 'checkbox',
-                        'label'             => $category->name,
-                        'section'           => 'tsjippy_news_gallery',
-                        'settings'          => "news_categories[$type][$taxonomy][$category->term_id]",
-                        'priority'          => $basePriority + ($index * 10) + $taxIndex,
-                        'active_callback' => function () use ($type) {
-                            return get_theme_mod("news_posttypes", [])[$type] && !get_theme_mod("hide_news_gallery", false);
-                        },
-                    ]
-                );
-            }
-        }
-    }
-}
-
-/**
- * The options for the page gallery
- */
-function frontpagePageGallery($wpCustomize)
-{
-    $postTypes = get_post_types(array(
-        'public'   => true
-    ), 'object');
-
-    if (empty($postTypes)) {
-        return;
-    }
-
-    $wpCustomize->add_section(
-        'tsjippy_page_gallery',
-        array(
-            'title'         => __('Page Gallery', 'tsjippy'),
-            'priority'      => 30,
-            'panel'         => 'tsjippy_frontpage_panel',
-            'description'     => __('Choose which post types you would like to include in the gallery', 'tsjippy'),
-        )
-    );
-
-    $wpCustomize->add_setting(
-        "hide_page_gallery"
-    );
-
-    $wpCustomize->add_control(
-        "hide_page_gallery",
-        [
-            'type'            => 'checkbox',
-            'label'         => __('Do not show the page gallery.', 'tsjippy'),
-            'section'       => 'tsjippy_page_gallery',
-            'settings'      => "hide_page_gallery",
-            'priority'      => 10
-        ]
-    );
-
-    $wpCustomize->add_setting(
-        "hide_page_gallery_if_empty"
-    );
-
-    $wpCustomize->add_control(
-        "hide_page_gallery_if_empty",
-        [
-            'type'            => 'checkbox',
-            'label'         => 'Do not show the page gallery if there are not pages to show',
-            'section'       => 'tsjippy_page_gallery',
-            'settings'      => "hide_page_gallery_if_empty",
-            'priority'      => 11
-        ]
-    );
-
-    $wpCustomize->add_setting(
-        "hide_page_gallery_if_not_logged_in"
-    );
-
-    $wpCustomize->add_control(
-        "hide_page_gallery_if_not_logged_in",
-        [
-            'type'            => 'checkbox',
-            'label'         => 'Do not show the page gallery if the user is not logged in',
-            'section'       => 'tsjippy_page_gallery',
-            'settings'      => "hide_page_gallery_if_not_logged_in",
-            'priority'      => 11
-        ]
-    );
-
-    $wpCustomize->add_setting(
-        "priority[page]",
-        [
-            'default'   => 20
-        ]
-    );
-
-    $wpCustomize->add_control(
-        "priority[page]",
-        [
-            'type'            => 'number',
-            'label'         => __('The priority of this gallery', 'tsjippy'),
-            'section'       => 'tsjippy_page_gallery',
-            'settings'      => "priority[page]",
-            'priority'      => 15,
-            'description'   => __('A lower number means higher on the page', 'tsjippy'),
-            'active_callback' => function () {
-                return !get_theme_mod("hide_page_gallery", false);
-            },
-        ]
-    );
-
-    $wpCustomize->add_setting(
-        "page-gallery-title",
-        [
-            'default'           => __('See what we do', 'tsjippy')
-        ]
-    );
-
-    $wpCustomize->add_control(
-        "page-gallery-title",
-        [
-            'type'            => 'text',
-            'label'         => __('Title for the gallery', 'tsjippy'),
-            'section'       => 'tsjippy_page_gallery',
-            'settings'      => "page-gallery-title",
-            'priority'      => 15,
-            'active_callback' => function () {
-                return !get_theme_mod("hide_page_gallery", false);
-            },
-        ]
-    );
-
-    $wpCustomize->add_setting(
-        "page-gallery-count",
-        [
-            'validate_callback'    => 'is_numeric',
-            'default'           => 3
-        ]
-    );
-
-    $wpCustomize->add_control(
-        "page-gallery-count",
-        [
-            'type'            => 'number',
-            'label'         => __('Amount of pages to show', 'tsjippy'),
-            'section'       => 'tsjippy_page_gallery',
-            'settings'      => "page-gallery-count",
-            'priority'      => 15,
-            'active_callback' => function () {
-                return !get_theme_mod("hide_page_gallery", false);
-            },
-        ]
-    );
-
-    $wpCustomize->add_setting(
-        "speed",
-        [
-            'validate_callback'    => 'is_numeric',
-            'default'           => 60
-        ]
-    );
-
-    $wpCustomize->add_control(
-        "speed",
-        [
-            'type'            => 'number',
-            'label'         => __('Refreshrate of the pages in seconds', 'tsjippy'),
-            'section'       => 'tsjippy_page_gallery',
-            'settings'      => "speed",
-            'priority'      => 15,
-            'active_callback' => function () {
-                return !get_theme_mod("hide_page_gallery", false);
-            },
-        ]
-    );
-
-    $wpCustomize->add_control(
-        new WP_Customize_Label_Control(
-            $wpCustomize,
-            "page-posttypes-label",
-            array(
-                'label'         => 'Select the post types you want want to include in the page gallery',
-                'section'       => 'tsjippy_page_gallery',
-                'priority'      => 20,
-                'settings'      => "label",
-                'active_callback' => function () {
-                    return !get_theme_mod("hide_page_gallery", false);
-                },
-            )
-        )
-    );
-
-    // loop over post types.
-    $basePriority   = 30;
-    foreach (array_keys($postTypes) as $index => $type) {
-
-        if ($type == 'attachment') {
-            continue;
-        }
-
-        $wpCustomize->add_setting(
-            "page_posttypes[$type]"
-        );
-
-        $wpCustomize->add_control(
-            "page_posttypes[$type]",
-            [
-                'type'                => 'checkbox',
-                'label'             => ucfirst($type) . 's',
-                'section'           => 'tsjippy_page_gallery',
-                'settings'          => "page_posttypes[$type]",
-                'priority'          => 20,
-                'active_callback' => function () {
-                    return !get_theme_mod("hide_page_gallery", false);
-                },
-            ]
-        );
-
-        $taxonomies     = get_object_taxonomies($type);
-        foreach ($taxonomies as $taxIndex => $taxonomy) {
-            if ($taxonomy == 'post_tag') {
-                continue;
-            }
-
-            // create a list of sub-categories
-            $categories    = get_categories(array(
-                'taxonomy'        => $taxonomy,
-                'hide_empty'     => false,
-            ));
-
-            if (empty($categories)) {
-                continue;
-            }
-
-            $wpCustomize->add_control(
-                new WP_Customize_Label_Control(
-                    $wpCustomize,
-                    "page_labels[$type][$taxonomy]-label",
-                    array(
-                        'label'         => ucfirst($type) . ' - ' . ucfirst(str_replace('_', ' ', $taxonomy)) . ":",
-                        'section'       => 'tsjippy_page_gallery',
-                        'priority'      => $basePriority + ($index * 10) + $taxIndex,
-                        'settings'      => "label",
-                        'description'     => __("Select the categories you want to exclude from the gallery", 'tsjippy'),
-                        'active_callback' => function () use ($type) {
-                            return get_theme_mod("page_posttypes", [])[$type] && !get_theme_mod("hide_page_gallery", false);
-                        },
-                    )
-                )
-            );
-
-            foreach ($categories as $category) {
-                $wpCustomize->add_setting(
-                    "page_categories[$type][$taxonomy][$category->term_id]"
-                );
-
-                $wpCustomize->add_control(
-                    "page_categories[$type][$taxonomy][$category->term_id]",
-                    [
-                        'type'                => 'checkbox',
-                        'label'             => $category->name,
-                        'section'           => 'tsjippy_page_gallery',
-                        'settings'          => "page_categories[$type][$taxonomy][$category->term_id]",
-                        'priority'          => $basePriority + ($index * 10) + $taxIndex,
-                        'active_callback' => function () use ($type) {
-                            return get_theme_mod("page_posttypes", [])[$type] && !get_theme_mod("hide_page_gallery", false);
-                        },
-                    ]
-                );
-            }
-        }
-    }
 }

@@ -35,11 +35,6 @@ get_header('frontpage'); ?>
 		 */
 		do_action('generate_before_main_content');
 
-		/** 
-		 * Frontpage specific hook
-		*/
-		do_action('tsjippy-theme-frontpage-before-main-content');
-
 		if (generate_has_default_loop()) {
 			while (have_posts()) :
 
@@ -51,8 +46,6 @@ get_header('frontpage'); ?>
 
 			endwhile;
 		}
-
-		showGalleries();
 
 		/**
 		 * generate_after_main_content hook.
