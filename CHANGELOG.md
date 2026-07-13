@@ -5,11 +5,16 @@
 ### Added
 
 ### Changed
-- removed gallery css
 
 ### Fixed
 
 ### Updated
+
+## [3.1.6] - 2026-07-13
+
+
+### Changed
+- removed gallery css
 
 ## [3.1.5] - 2026-07-13
 
