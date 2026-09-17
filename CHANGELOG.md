@@ -5,6 +5,7 @@
 ### Added
 
 ### Changed
+- wp_enqueue_script to wp_enqueue_script_module
 
 ### Fixed
 - z-index of sidebar
