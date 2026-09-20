@@ -1,3 +1,8 @@
+
+import { 
+  Alert 
+} from "../../../plugins/tsjippy-shared-functionality/js/partials/alert.js";
+
 console.log("Home.js loaded");
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -14,15 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href.split("?")[0],
     );
 
-    if (Main != undefined && Main.Alert != undefined) {
-      let options = {
-        title: type,
-      };
+    let options = {
+      title: type,
+    };
 
-      new Main.Alert(text, type.toLowerCase(), options);
-    } else {
-      alert();
-    }
+    new Alert(text, type.toLowerCase(), options);
   }
 
   var scrollTop = 0;
