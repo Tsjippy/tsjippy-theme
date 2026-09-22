@@ -1,7 +1,7 @@
 
 import { 
   Alert 
-} from "../../../plugins/tsjippy-shared-functionality/js/partials/alert.js";
+} from "@tsjippy/alert";
 
 console.log("Home.js loaded");
 

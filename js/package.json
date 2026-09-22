@@ -4,9 +4,9 @@
   "description": "Home",
   "main": "./home.js",
   "scripts": {
-    "home": "webpack --entry ./home.js --output-path . --output-filename home.min.js --progress --mode=production --devtool source-map",
-    "customizer": "webpack --entry ./customizer.js --output-path . --output-filename customizer.min.js --progress --mode=production --devtool source-map",
-    "all": "run-p home customizer"
+    "build": "webpack --progress",
+    "watch": "webpack --watch --progress",
+    "all": "npm run build"
   },
   "author": "Ewald Harmsen",
   "license": "ISC",
