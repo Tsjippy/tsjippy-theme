@@ -11,6 +11,7 @@ module.exports = {
     home: './home.js',
   },
   output: {
+    module: true,
     path: path.resolve(__dirname, '.'),
     filename: '[name].min.js', // Automatically uses the entry key name (e.g., main.min.js)
   },
@@ -19,4 +20,11 @@ module.exports = {
         ...sharedAliases,
     },
   },
+  experiments: {
+    outputModule: true,
+  },
+
+
+  externalsType: 'module',
+  externals,
 };
