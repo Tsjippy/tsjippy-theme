@@ -8,6 +8,7 @@
 - wp_enqueue_script to wp_enqueue_script_module
 - js update
 - refactored js
+- removed console.log
 
 ### Fixed
 - z-index of sidebar
