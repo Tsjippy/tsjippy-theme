@@ -1,6 +1,7 @@
 // webpack.config.js
 const path = require('path');
 const sharedAliases = require('../../../plugins/tsjippy-shared-functionality/js/webpack.aliases'); // Import your aliases
+const externals = require('../../../plugins/tsjippy-shared-functionality/js/webpack.externals');
 
 module.exports = {
   mode: 'production',
